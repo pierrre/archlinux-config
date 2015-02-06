@@ -93,7 +93,7 @@ my-services() {
     sudo systemctl $action memcached
     sudo systemctl $action redis
     sudo systemctl $action rabbitmq
-    sudo systemctl $action pound
+    sudo systemctl $action haproxy
 }
 
 source $HOME/.gorc/gorc.sh
