@@ -51,7 +51,7 @@ ControlPersist yes
 ```
 
 ## Font
-`ttf-google-fonts-git`
+`ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
 
 ## Gnome
 `gnome gnome-extra gnome-tweak-tool`
