@@ -40,7 +40,7 @@ COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## Tools
-`git subversion mercurial htop bmon`
+`git subversion mercurial htop bmon nethogs`
 
 ## SSH
 .ssh/config
@@ -49,18 +49,6 @@ ControlMaster auto
 ControlPath /tmp/%r@%h:%p
 ControlPersist yes
 ```
-
-## Font
-`ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
-
-## Gnome
-`gnome gnome-extra gnome-tweak-tool`
-
-`alacarte` | `menulibre`
-
-https://extensions.gnome.org/extension/307/dash-to-dock
-
-https://extensions.gnome.org/extension/495/topicons
 
 ## Shell
 `zsh`
@@ -98,6 +86,21 @@ my-services() {
 
 source $HOME/.gorc/gorc.sh
 ```
+
+## Font
+`ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
+
+## Gnome
+`gnome gnome-extra gnome-tweak-tool`
+
+`alacarte` | `menulibre`
+
+Extensions:
+- https://extensions.gnome.org/extension/307/dash-to-dock
+- https://extensions.gnome.org/extension/495/topicons
+- Applications menu
+- Native window placement
+- User themes
 
 ## Appearance
 `zukitwo-themes faenza-icon-theme xcursor-human`
