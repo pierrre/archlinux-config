@@ -40,7 +40,7 @@ COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## System tools
-`git subversion mercurial htop bmon nethogs iotop meld jq parallel ntp`
+`git subversion mercurial htop bmon nethogs iotop meld jq parallel ntp openssh`
 
 ## SSH
 .ssh/config
@@ -188,4 +188,13 @@ backend stats
 `gimp`
 
 ## Printer
-`hplip`
+`cups hplip`
+
+## Autostart services
+- NetworkManager
+- gdm
+- bumblebeed
+- dkms
+- ntpd
+- sshd
+- org.cups.cupsd
