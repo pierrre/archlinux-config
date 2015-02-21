@@ -39,8 +39,8 @@ PKGEXT='.pkg.tar'
 COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
-## Tools
-`git subversion mercurial htop bmon nethogs meld jq speedtest-cli`
+## System tools
+`git subversion mercurial htop bmon nethogs iotop meld jq parallel `
 
 ## SSH
 .ssh/config
@@ -87,6 +87,9 @@ my-services() {
 source $HOME/.gorc/gorc.sh
 ```
 
+## Bumblebee / Optimus / Nvidia shit
+https://wiki.archlinux.org/index.php/bumblebee
+
 ## Font
 `ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
 
@@ -105,6 +108,9 @@ Extensions:
 ## Appearance
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
+## Tools
+`speedtest-cli wkhtmltopdf youtube-dl`
+
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
 
@@ -115,7 +121,7 @@ Extensions:
 `qt5`
 
 ## Development
-`smartgit phpstorm rabbitmq redis memcache`
+`smartgit phpstorm rabbitmq redis memcache nodejs mongodb elasticsearch`
 
 ## Go
 https://go.googlesource.com => `$HOME/Logiciels/go`
@@ -129,6 +135,43 @@ https://github.com/pierrre/gorc => `$HOME/.gorc`
 
 `apm stars --user pierrre --install`
 
+## Apache
+`apache`
+
+## PHP
+`php php-pear php-apache php-gd php-intl php-mcrypt php-mongo php-tidy xdebug`
+
+PECL packages:
+- imagick
+
+https://wiki.archlinux.org/index.php/Apache_HTTP_Server
+
+## HAProxy
+`haproxy`
+
+/etc/haproxy/haproxy.cfg
+```
+global
+    ssl-default-bind-options no-sslv3
+
+frontend https
+    bind 127.0.0.1:443 ssl crt /etc/ssl/certs/MYCERT.pem
+
+    reqadd X-Forwarded-Proto:\ https if { dst_port 443 }
+    reqadd X-Forwarded-Port:\ 443 if { dst_port 443 }
+
+    use_backend stats if { hdr_dom(host) -i local-haproxy }
+
+    default_backend apache
+
+backend apache
+    server apache 127.0.0.1:80
+
+backend stats
+    stats enable
+    stats uri /
+```
+
 ## Office
 `libreoffice-fresh libreoffice-fresh-fr`
 
@@ -137,3 +180,6 @@ https://github.com/pierrre/gorc => `$HOME/.gorc`
 
 ## VirtualBox
 `virtualbox virtualbox-host-dkms virtualbox-host-modules virtualbox-ext-oracle`
+
+## Steam
+`steam`
