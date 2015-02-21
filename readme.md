@@ -40,7 +40,7 @@ COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## Tools
-`git subversion mercurial htop bmon nethogs`
+`git subversion mercurial htop bmon nethogs meld jq speedtest-cli`
 
 ## SSH
 .ssh/config
@@ -111,8 +111,11 @@ Extensions:
 ## Java
 `jdk`
 
+## Qt
+`qt5`
+
 ## Development
-`smartgit atom-editor meld redis memcache`
+`smartgit phpstorm rabbitmq redis memcache`
 
 ## Go
 https://go.googlesource.com => `$HOME/Logiciels/go`
@@ -121,5 +124,16 @@ https://github.com/visualfc/liteide => `$HOME/Git/visualfc/liteide`
 
 https://github.com/pierrre/gorc => `$HOME/.gorc`
 
+## Atom
+`atom-editor`
+
+`apm stars --user pierrre --install`
+
 ## Office
 `libreoffice-fresh libreoffice-fresh-fr`
+
+## Dropbox
+`dropbox nautilus-dropbox`
+
+## VirtualBox
+`virtualbox virtualbox-host-dkms virtualbox-host-modules virtualbox-ext-oracle`
