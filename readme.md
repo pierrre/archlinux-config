@@ -121,7 +121,34 @@ Extensions:
 `qt5`
 
 ## Development
-`smartgit phpstorm rabbitmq redis memcached nodejs mongodb elasticsearch ruby`
+`smartgit phpstorm memcached nodejs mongodb ruby`
+
+## Elasticsearch
+`elasticsearch`
+
+/etc/elasticsearch/elasticsearch.yml
+```
+script.disable_dynamic: false
+script.groovy.sandbox.enabled: false
+
+http.compression: true
+http.compression_level: 9
+```
+
+## RabbitMQ
+`rabbitmq`
+
+`rabbitmq-plugins enable rabbitmq_management`
+
+## Redis
+`redis`
+
+/etc/redis.conf
+```
+# save 900 1
+# save 300 10
+# save 60 10000
+```
 
 ## Go
 https://go.googlesource.com => `$HOME/Logiciels/go`
