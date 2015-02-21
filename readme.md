@@ -40,7 +40,7 @@ COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## System tools
-`git subversion mercurial htop bmon nethogs iotop meld jq parallel `
+`git subversion mercurial htop bmon nethogs iotop meld jq parallel ntp`
 
 ## SSH
 .ssh/config
@@ -109,7 +109,7 @@ Extensions:
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
 ## Tools
-`speedtest-cli wkhtmltopdf youtube-dl`
+`speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
@@ -121,7 +121,7 @@ Extensions:
 `qt5`
 
 ## Development
-`smartgit phpstorm rabbitmq redis memcache nodejs mongodb elasticsearch`
+`smartgit phpstorm rabbitmq redis memcached nodejs mongodb elasticsearch ruby`
 
 ## Go
 https://go.googlesource.com => `$HOME/Logiciels/go`
@@ -183,3 +183,9 @@ backend stats
 
 ## Steam
 `steam`
+
+## Gimp
+`gimp`
+
+## Printer
+`hplip`
