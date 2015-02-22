@@ -55,7 +55,7 @@ ControlPersist yes
 
 https://github.com/robbyrussell/oh-my-zsh
 
-Plugins: `git history-substring-search`
+Plugins: `git git-extras screen colored-man history-substring-search golang composer symfony2`
 
 $HOME/.zshrc
 ```
