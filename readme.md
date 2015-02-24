@@ -40,7 +40,7 @@ COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## System tools
-`git subversion mercurial htop bmon nethogs iotop meld jq parallel ntp openssh`
+`git subversion mercurial htop bmon nethogs iotop ntp openssh`
 
 ## SSH
 .ssh/config
@@ -109,7 +109,7 @@ Extensions:
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
 ## Tools
-`speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
+`meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
@@ -118,7 +118,7 @@ Extensions:
 `jdk`
 
 ## Qt
-`qt5`
+`qt5 qt`
 
 ## Development
 `smartgit phpstorm memcached nodejs mongodb ruby`
