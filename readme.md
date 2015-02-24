@@ -118,7 +118,7 @@ Extensions:
 `jdk`
 
 ## Qt
-`qt5 qt`
+`qt5 qt qtwebkit`
 
 ## Development
 `smartgit phpstorm memcached nodejs mongodb ruby`
