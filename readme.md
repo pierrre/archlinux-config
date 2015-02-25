@@ -114,9 +114,6 @@ Extensions:
 ## Java
 `jdk`
 
-## Qt
-`qt5 qt qtwebkit`
-
 ## Development
 `smartgit phpstorm memcached nodejs mongodb ruby`
 
@@ -150,9 +147,11 @@ http.compression_level: 9
 ## Go
 https://go.googlesource.com => `$HOME/Logiciels/go`
 
+https://github.com/pierrre/gorc => `$HOME/.gorc`
+
 https://github.com/visualfc/liteide => `$HOME/Git/visualfc/liteide`
 
-https://github.com/pierrre/gorc => `$HOME/.gorc`
+LiteIDE requires `qt5 qt qtwebkit`.
 
 ## Atom
 `atom-editor`
