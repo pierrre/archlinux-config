@@ -39,9 +39,6 @@ PKGEXT='.pkg.tar'
 COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
-## System tools
-`git subversion mercurial htop bmon nethogs iotop ntp openssh`
-
 ## SSH
 .ssh/config
 ```
@@ -91,7 +88,7 @@ source $HOME/.gorc/gorc.sh
 https://wiki.archlinux.org/index.php/bumblebee
 
 ## Font
-`ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
+`ttf-dejavu ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
 
 ## Gnome
 `gnome gnome-extra gnome-tweak-tool`
@@ -109,7 +106,7 @@ Extensions:
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
 ## Tools
-`meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
+`git subversion mercurial htop bmon nethogs iotop ntp openssh meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
