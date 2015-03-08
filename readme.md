@@ -83,6 +83,7 @@ my-services() {
     sudo systemctl $action haproxy
 }
 
+export GIMME_GO_VERSION=1.4.2
 source $HOME/.gorc/gorc.sh
 ```
 
