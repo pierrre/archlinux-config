@@ -9,6 +9,8 @@
 ## Xorg
 `xorg xorg-xinit xorg-twm xorg-xclock xterm`
 
+Remove `xorg-fonts-75dpi xorg-fonts-100dpi` (shitty fonts).
+
 ## Pacman
 /etc/pacman.d/mirrorlist
 ```
@@ -106,7 +108,7 @@ Extensions:
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
 ## Tools
-`git subversion mercurial htop bmon nethogs iotop ntp openssh meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
+`wget git subversion mercurial htop bmon nethogs iotop ntp openssh meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
