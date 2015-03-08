@@ -104,6 +104,9 @@ Extensions:
 - Native window placement
 - User themes
 
+## Xfce
+`xfce4 xfce4-goodies lightdm xarchiver`
+
 ## Appearance
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
