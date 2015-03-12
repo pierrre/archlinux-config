@@ -4,7 +4,7 @@
 `base base-devel`
 
 ## Network
-`iw wpa_suplicant dialog networkmanager`
+`iw wpa_supplicant dialog wpa_actiond networkmanager`
 
 ## Xorg
 `xorg xorg-xinit xorg-twm xorg-xclock xterm`
