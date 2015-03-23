@@ -112,7 +112,7 @@ Extensions:
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
 ## Tools
-`wget git subversion mercurial htop bmon nethogs iotop ntp openssh meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
+`wget git subversion mercurial htop bmon nethogs iotop openssh meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
@@ -221,9 +221,9 @@ backend stats
 
 ## Autostart services
 - NetworkManager
-- gdm
+- systemd-timesyncd
+- gdm | lightdm
 - bumblebeed
 - dkms
-- ntpd
 - sshd
 - org.cups.cupsd
