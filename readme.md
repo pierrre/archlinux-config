@@ -57,7 +57,7 @@ https://github.com/robbyrussell/oh-my-zsh
 Plugins: `git git-extras screen colored-man history-substring-search golang composer symfony2`
 
 $HOME/.zshrc
-```
+```sh
 source $ZSH/oh-my-zsh.sh
 
 ulimit -n 4096
@@ -91,7 +91,66 @@ source $HOME/.gorc/gorc.sh
 https://wiki.archlinux.org/index.php/bumblebee
 
 ## Font
-`ttf-dejavu ttf-google-fonts-git ttf-mac-fonts ttf-ms-fonts`
+`adobe-source-sans-pro-fonts adobe-source-code-pro-fonts adobe-source-serif-pro-fonts`
+
+~/.config/fontconfig/fonts.conf
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+	<!-- improve rendering -->
+	<match target="font">
+		<edit name="autohint" mode="assign">
+			<bool>true</bool>
+		</edit>
+	</match>
+	<match target="font">
+		<edit name="hintstyle" mode="assign">
+			<const>hintfull</const>
+		</edit>
+	</match>
+	<match target="font">
+		<edit name="rgba" mode="assign">
+			<const>rgb</const>
+		</edit>
+	</match>
+	<match target="font">
+		<edit mode="assign" name="lcdfilter">
+			<const>lcddefault</const>
+		</edit>
+	</match>
+	
+	<!-- prefer -->
+	<alias>
+		<family>sans-serif</family>
+		<prefer>
+			<family>Source Sans pro</family>
+		</prefer>
+	</alias>
+	<alias>
+		<family>serif</family>
+		<prefer>
+			<family>Source Serif pro</family>
+		</prefer>
+	</alias>
+	<alias>
+		<family>monospace</family>
+		<prefer>
+			<family>Source Code pro</family>
+		</prefer>
+	</alias>
+
+	<!-- disable -->
+	<selectfont>
+		<rejectfont>
+			<glob>/usr/share/fonts/misc</glob>
+			<glob>/usr/share/fonts/OTF/SyrCOM*</glob>
+			<glob>/usr/share/fonts/OTF/GohaTibebZemen.otf</glob>
+			<glob>/usr/share/fonts/TTF/GohaTibebZemen.ttf</glob>
+		</rejectfont>
+	</selectfont>
+</fontconfig>
+```
 
 ## Gnome
 `gnome gnome-extra gnome-tweak-tool`
@@ -127,7 +186,7 @@ Extensions:
 `elasticsearch`
 
 /etc/elasticsearch/elasticsearch.yml
-```
+```yaml
 script.disable_dynamic: false
 script.groovy.sandbox.enabled: false
 
