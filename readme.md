@@ -103,30 +103,23 @@ https://wiki.archlinux.org/index.php/bumblebee
 		<edit name="antialias" mode="assign">
 			<bool>true</bool>
 		</edit>
-	</match>
-	<match target="font">
 		<edit name="hinting" mode="assign">
 			<bool>true</bool>
 		</edit>
-	</match>
-	<match target="font">
 		<edit name="autohint" mode="assign">
 			<bool>true</bool>
 		</edit>
-	</match>
-	<match target="font">
 		<edit name="hintstyle" mode="assign">
 			<const>hintfull</const>
 		</edit>
-	</match>
-	<match target="font">
 		<edit name="rgba" mode="assign">
 			<const>rgb</const>
 		</edit>
-	</match>
-	<match target="font">
 		<edit mode="assign" name="lcdfilter">
 			<const>lcddefault</const>
+		</edit>
+		<edit name="embeddedbitmap" mode="assign">
+			<bool>false</bool>
 		</edit>
 	</match>
 	<match target="font">
