@@ -119,14 +119,6 @@ https://wiki.archlinux.org/index.php/bumblebee
 			<bool>false</bool>
 		</edit>
 	</match>
-	<match target="font">
-		<test name="weight" compare="more">
-			<const>medium</const>
-		</test>
-		<edit name="autohint" mode="assign">
-			<bool>false</bool>
-		</edit>
-	</match>
 
 	<!-- prefer -->
 	<alias>
