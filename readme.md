@@ -100,6 +100,16 @@ https://wiki.archlinux.org/index.php/bumblebee
 <fontconfig>
 	<!-- improve rendering -->
 	<match target="font">
+		<edit name="antialias" mode="assign">
+			<bool>true</bool>
+		</edit>
+	</match>
+	<match target="font">
+		<edit name="hinting" mode="assign">
+			<bool>true</bool>
+		</edit>
+	</match>
+	<match target="font">
 		<edit name="autohint" mode="assign">
 			<bool>true</bool>
 		</edit>
@@ -117,6 +127,14 @@ https://wiki.archlinux.org/index.php/bumblebee
 	<match target="font">
 		<edit mode="assign" name="lcdfilter">
 			<const>lcddefault</const>
+		</edit>
+	</match>
+	<match target="font">
+		<test name="weight" compare="more">
+			<const>medium</const>
+		</test>
+		<edit name="autohint" mode="assign">
+			<bool>false</bool>
 		</edit>
 	</match>
 
