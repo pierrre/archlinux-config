@@ -73,14 +73,14 @@ alias fix-adb="sudo zsh -c 'killall adb;/home/pierre/Logiciels/android-sdk/platf
 alias apktool="java -jar $HOME/Logiciels/apktool.jar"
 
 my-services() {
-    action=$1
-    sudo systemctl $action elasticsearch
-    sudo systemctl $action mongodb
-    sudo systemctl $action httpd
-    sudo systemctl $action memcached
-    sudo systemctl $action redis
-    sudo systemctl $action rabbitmq
-    sudo systemctl $action haproxy
+	action=$1
+	sudo systemctl $action elasticsearch
+	sudo systemctl $action mongodb
+	sudo systemctl $action httpd
+	sudo systemctl $action memcached
+	sudo systemctl $action redis
+	sudo systemctl $action rabbitmq
+	sudo systemctl $action haproxy
 }
 
 export GIMME_GO_VERSION=1.4.2
@@ -119,7 +119,7 @@ https://wiki.archlinux.org/index.php/bumblebee
 			<const>lcddefault</const>
 		</edit>
 	</match>
-	
+
 	<!-- prefer -->
 	<alias>
 		<family>sans-serif</family>
@@ -147,6 +147,7 @@ https://wiki.archlinux.org/index.php/bumblebee
 			<glob>/usr/share/fonts/OTF/SyrCOM*</glob>
 			<glob>/usr/share/fonts/OTF/GohaTibebZemen.otf</glob>
 			<glob>/usr/share/fonts/TTF/GohaTibebZemen.ttf</glob>
+			<glob>/usr/share/fonts/Type1</glob>
 		</rejectfont>
 	</selectfont>
 </fontconfig>
@@ -240,24 +241,24 @@ https://wiki.archlinux.org/index.php/Apache_HTTP_Server
 /etc/haproxy/haproxy.cfg
 ```
 global
-    ssl-default-bind-options no-sslv3
+	ssl-default-bind-options no-sslv3
 
 frontend https
-    bind 127.0.0.1:443 ssl crt /etc/ssl/certs/MYCERT.pem
+	bind 127.0.0.1:443 ssl crt /etc/ssl/certs/MYCERT.pem
 
-    reqadd X-Forwarded-Proto:\ https if { dst_port 443 }
-    reqadd X-Forwarded-Port:\ 443 if { dst_port 443 }
+	reqadd X-Forwarded-Proto:\ https if { dst_port 443 }
+	reqadd X-Forwarded-Port:\ 443 if { dst_port 443 }
 
-    use_backend stats if { hdr_dom(host) -i local-haproxy }
+	use_backend stats if { hdr_dom(host) -i local-haproxy }
 
-    default_backend apache
+	default_backend apache
 
 backend apache
-    server apache 127.0.0.1:80
+	server apache 127.0.0.1:80
 
 backend stats
-    stats enable
-    stats uri /
+	stats enable
+	stats uri /
 ```
 
 ## Office
