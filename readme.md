@@ -65,6 +65,7 @@ ulimit -n 4096
 export EDITOR=nano
 
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
+alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
 export PATH=$PATH:$HOME/Logiciels
 
