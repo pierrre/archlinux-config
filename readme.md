@@ -108,7 +108,7 @@ https://wiki.archlinux.org/index.php/bumblebee
 			<bool>true</bool>
 		</edit>
 		<edit name="hintstyle" mode="assign">
-			<const>hintfull</const>
+			<const>hintslight</const>
 		</edit>
 		<edit name="rgba" mode="assign">
 			<const>rgb</const>
