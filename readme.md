@@ -12,6 +12,16 @@ https://wiki.archlinux.org/index.php/bumblebee
 ## Xorg
 `xorg-xinit xorg-twm xorg-xclock xterm`
 
+/etc/X11/xorg.conf.d/10-keyboard.conf
+```
+Section "InputClass"
+	Identifier "system-keyboard"
+	MatchIsKeyboard "on"
+	Option "XkbLayout" "fr"
+	Option "XkbVariant" "latin9"
+EndSection
+```
+
 ## Pacman
 /etc/pacman.d/mirrorlist
 ```
