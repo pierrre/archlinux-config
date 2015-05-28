@@ -165,7 +165,12 @@ Extensions:
 - User themes
 
 ## Xfce
-`xfce4 xfce4-goodies lightdm xarchiver`
+`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xarchiver`
+
+/etc/lightdm/lightdm.conf
+```
+greeter-session=lightdm-gtk-greeter
+```
 
 ## Appearance
 `zukitwo-themes faenza-icon-theme xcursor-human`
