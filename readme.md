@@ -182,6 +182,9 @@ Extensions:
 greeter-session=lightdm-gtk-greeter
 ```
 
+## gvfs
+`gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-smb`
+
 ## Appearance
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
