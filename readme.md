@@ -6,10 +6,11 @@
 ## Network
 `iw wpa_supplicant dialog wpa_actiond networkmanager`
 
-## Xorg
-`xorg xorg-xinit xorg-twm xorg-xclock xterm`
+## Bumblebee / Optimus / Nvidia shit
+https://wiki.archlinux.org/index.php/bumblebee
 
-Remove `xorg-fonts-75dpi xorg-fonts-100dpi` (shitty fonts).
+## Xorg
+`xorg-xinit xorg-twm xorg-xclock xterm`
 
 ## Pacman
 /etc/pacman.d/mirrorlist
@@ -87,9 +88,6 @@ my-services() {
 export GIMME_GO_VERSION=1.4.2
 source $HOME/.gorc/gorc.sh
 ```
-
-## Bumblebee / Optimus / Nvidia shit
-https://wiki.archlinux.org/index.php/bumblebee
 
 ## Font
 `adobe-source-sans-pro-fonts adobe-source-code-pro-fonts adobe-source-serif-pro-fonts`
