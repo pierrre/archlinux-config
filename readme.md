@@ -9,6 +9,8 @@
 ## Bumblebee / Optimus / Nvidia shit
 https://wiki.archlinux.org/index.php/bumblebee
 
+Service `bumblebeed`
+
 ## Xorg
 `xorg-xinit xorg-twm xorg-xclock xterm`
 
@@ -300,7 +302,6 @@ backend stats
 - NetworkManager
 - systemd-timesyncd
 - gdm | lightdm
-- bumblebeed
 - dkms
 - sshd
 - org.cups.cupsd
