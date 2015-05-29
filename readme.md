@@ -55,6 +55,10 @@ COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## SSH
+`openssh`
+
+Service `sshd`
+
 .ssh/config
 ```
 ControlMaster auto
@@ -191,7 +195,7 @@ greeter-session=lightdm-gtk-greeter
 `zukitwo-themes faenza-icon-theme xcursor-human`
 
 ## Tools
-`wget git subversion mercurial htop bmon nethogs iotop openssh meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen unzip`
+`wget git subversion mercurial htop bmon nethogs iotop meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen unzip`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
@@ -298,13 +302,13 @@ backend stats
 ## Printer
 `cups hplip`
 
+Service `org.cups.cupsd`
+
 ## Autostart services
 - NetworkManager
 - systemd-timesyncd
 - gdm | lightdm
 - dkms
-- sshd
-- org.cups.cupsd
 
 ## Swappiness
 /etc/sysctl.d/99-sysctl.conf
