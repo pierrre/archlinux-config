@@ -168,18 +168,6 @@ source $HOME/.gorc/gorc.sh
 </fontconfig>
 ```
 
-## Gnome
-`gnome gnome-extra gnome-tweak-tool`
-
-`alacarte` | `menulibre`
-
-Extensions:
-- https://extensions.gnome.org/extension/307/dash-to-dock
-- https://extensions.gnome.org/extension/495/topicons
-- Applications menu
-- Native window placement
-- User themes
-
 ## Xfce
 `xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xarchiver`
 
@@ -192,10 +180,10 @@ greeter-session=lightdm-gtk-greeter
 `gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-smb`
 
 ## Appearance
-`zukitwo-themes faenza-icon-theme xcursor-human`
+`zukitwo-themes faenza-icon-theme`
 
 ## Tools
-`wget git subversion mercurial htop bmon nethogs iotop meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen unzip`
+`wget git subversion mercurial htop bmon nethogs iotop meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen unzip menulibre`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
@@ -288,7 +276,7 @@ backend stats
 `libreoffice-fresh libreoffice-fresh-fr`
 
 ## Dropbox
-`dropbox nautilus-dropbox`
+`dropbox thunar-dropbox`
 
 ## VirtualBox
 `virtualbox virtualbox-host-dkms virtualbox-host-modules virtualbox-ext-oracle`
