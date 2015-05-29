@@ -304,3 +304,9 @@ backend stats
 - dkms
 - sshd
 - org.cups.cupsd
+
+## Swappiness
+/etc/sysctl.d/99-sysctl.conf
+```
+vm.swappiness=10
+```
