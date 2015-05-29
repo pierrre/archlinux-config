@@ -169,7 +169,7 @@ source $HOME/.gorc/gorc.sh
 ```
 
 ## Xfce
-`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xarchiver`
+`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter gnome-screensaver light-locker xarchiver`
 
 /etc/lightdm/lightdm.conf
 ```
