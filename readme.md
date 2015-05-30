@@ -303,3 +303,9 @@ Service `org.cups.cupsd`
 ```
 vm.swappiness=10
 ```
+
+## Laptop LID switch
+/etc/systemd/logind.conf
+```
+HandleLidSwitch=ignore
+```
