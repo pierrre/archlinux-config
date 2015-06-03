@@ -169,7 +169,7 @@ source $HOME/.gorc/gorc.sh
 ```
 
 ## Xfce
-`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter gnome-screensaver light-locker xarchiver`
+`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter gnome-screensaver light-locker`
 
 /etc/lightdm/lightdm.conf
 ```
@@ -289,6 +289,9 @@ backend stats
 
 ## Evince
 `evince`
+
+## File roller
+`file-roller`
 
 ## Printer
 `cups hplip`
