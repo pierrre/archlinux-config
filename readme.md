@@ -169,12 +169,20 @@ source $HOME/.gorc/gorc.sh
 ```
 
 ## Xfce
-`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter gnome-screensaver light-locker`
+`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter`
 
 /etc/lightdm/lightdm.conf
 ```
 greeter-session=lightdm-gtk-greeter
 ```
+
+Lock
+
+`gnome-screensaver light-locker`
+
+Gnome tools
+
+`evince file-roller baobab`
 
 ## gvfs
 `gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-smb`
@@ -286,12 +294,6 @@ backend stats
 
 ## Gimp
 `gimp`
-
-## Evince
-`evince`
-
-## File roller
-`file-roller`
 
 ## Printer
 `cups hplip`
