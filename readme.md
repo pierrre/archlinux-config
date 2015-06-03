@@ -287,6 +287,9 @@ backend stats
 ## Gimp
 `gimp`
 
+## Evince
+`evince`
+
 ## Printer
 `cups hplip`
 
