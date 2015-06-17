@@ -296,7 +296,7 @@ backend stats
 `gimp`
 
 ## Printer
-`cups hplip`
+`system-config-printer cups hplip`
 
 Service `org.cups.cupsd`
 
