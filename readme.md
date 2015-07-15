@@ -230,13 +230,11 @@ http.compression_level: 9
 ```
 
 ## Go
-https://go.googlesource.com => `$HOME/Logiciels/go`
-
 https://github.com/pierrre/gorc => `$HOME/.gorc`
 
-https://github.com/visualfc/liteide => `$HOME/Git/visualfc/liteide`
+`intellij-idea-community-edition`
 
-LiteIDE requires `qt5 qt qtwebkit`.
+https://github.com/go-lang-plugin-org/go-lang-idea-plugin
 
 ## Atom
 `atom-editor`
