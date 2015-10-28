@@ -80,15 +80,20 @@ source $ZSH/oh-my-zsh.sh
 ulimit -n 4096
 
 export EDITOR=nano
+export PATH=$PATH:$HOME/Logiciels
+export CDPATH=.:$HOME
+
+export GIMME_GO_VERSION=1.5.1
+export GO15VENDOREXPERIMENT=1
+source $HOME/.gorc/gorc.sh
+
+export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
+alias adb-screencap="adb exec-out screencap -p"
+alias fix-adb="sudo zsh -c 'killall adb;/home/pierre/Logiciels/android-sdk/platform-tools/adb start-server'"
+alias apktool="java -jar $HOME/Logiciels/apktool.jar"
 
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
-
-export PATH=$PATH:$HOME/Logiciels
-
-export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
-alias fix-adb="sudo zsh -c 'killall adb;/home/pierre/Logiciels/android-sdk/platform-tools/adb start-server'"
-alias apktool="java -jar $HOME/Logiciels/apktool.jar"
 
 my-services() {
 	action=$1
@@ -100,9 +105,6 @@ my-services() {
 	sudo systemctl $action rabbitmq
 	sudo systemctl $action haproxy
 }
-
-export GIMME_GO_VERSION=1.4.2
-source $HOME/.gorc/gorc.sh
 ```
 
 ## Font
