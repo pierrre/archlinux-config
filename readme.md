@@ -141,19 +141,19 @@ my-services() {
 	<alias>
 		<family>sans-serif</family>
 		<prefer>
-			<family>Source Sans pro</family>
+			<family>Source Sans Pro</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>serif</family>
 		<prefer>
-			<family>Source Serif pro</family>
+			<family>Source Serif Pro</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>Source Code pro</family>
+			<family>Source Code Pro</family>
 		</prefer>
 	</alias>
 
