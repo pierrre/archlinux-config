@@ -51,7 +51,6 @@ DIFFEDITCMD="meld"
 /etc/makepkg.conf
 ```
 PKGEXT='.pkg.tar'
-COMPRESSXZ=(xz -T0 -c -z -)
 ```
 
 ## SSH
@@ -83,7 +82,7 @@ export EDITOR=nano
 export PATH=$PATH:$HOME/Logiciels
 export CDPATH=.:$HOME
 
-export GIMME_GO_VERSION=1.5.1
+export GIMME_GO_VERSION=1.5.3
 export GO15VENDOREXPERIMENT=1
 source $HOME/.gorc/gorc.sh
 
@@ -94,17 +93,6 @@ alias apktool="java -jar $HOME/Logiciels/apktool.jar"
 
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
-
-my-services() {
-	action=$1
-	sudo systemctl $action elasticsearch
-	sudo systemctl $action mongodb
-	sudo systemctl $action httpd
-	sudo systemctl $action memcached
-	sudo systemctl $action redis
-	sudo systemctl $action rabbitmq
-	sudo systemctl $action haproxy
-}
 ```
 
 ## Font
@@ -170,27 +158,8 @@ my-services() {
 </fontconfig>
 ```
 
-## Xfce
-`xfce4 xfce4-goodies lightdm lightdm-gtk-greeter`
-
-/etc/lightdm/lightdm.conf
-```
-greeter-session=lightdm-gtk-greeter
-```
-
-Lock
-
-`gnome-screensaver light-locker`
-
-Gnome tools
-
-`evince file-roller baobab`
-
-## gvfs
-`gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-smb`
-
 ## Appearance
-`zukitwo-themes faenza-icon-theme`
+`faenza-icon-theme`
 
 ## Tools
 `wget git subversion mercurial htop bmon nethogs iotop meld jq parallel speedtest-cli wkhtmltopdf youtube-dl graphicsmagick imagemagick gource screen unzip menulibre`
@@ -202,83 +171,15 @@ Gnome tools
 `jdk`
 
 ## Development
-`smartgit phpstorm memcached nodejs mongodb ruby`
-
-## Elasticsearch
-`elasticsearch`
-
-/etc/elasticsearch/elasticsearch.yml
-```yaml
-script.disable_dynamic: false
-script.groovy.sandbox.enabled: false
-
-http.compression: true
-http.compression_level: 9
-```
-
-## RabbitMQ
-`rabbitmq`
-
-`rabbitmq-plugins enable rabbitmq_management`
-
-## Redis
-`redis`
-
-/etc/redis.conf
-```
-# save 900 1
-# save 300 10
-# save 60 10000
-```
+`smartgit phpstorm`
 
 ## Go
 https://github.com/pierrre/gorc => `$HOME/.gorc`
-
-`intellij-idea-community-edition`
-
-https://github.com/go-lang-plugin-org/go-lang-idea-plugin
 
 ## Atom
 `atom-editor`
 
 `apm stars --user pierrre --install`
-
-## Apache
-`apache`
-
-## PHP
-`php php-pear php-apache php-gd php-intl php-mcrypt php-mongo php-tidy xdebug`
-
-PECL packages:
-- imagick
-
-https://wiki.archlinux.org/index.php/Apache_HTTP_Server
-
-## HAProxy
-`haproxy`
-
-/etc/haproxy/haproxy.cfg
-```
-global
-	ssl-default-bind-options no-sslv3
-
-frontend https
-	bind 127.0.0.1:443 ssl crt /etc/ssl/certs/MYCERT.pem
-
-	reqadd X-Forwarded-Proto:\ https if { dst_port 443 }
-	reqadd X-Forwarded-Port:\ 443 if { dst_port 443 }
-
-	use_backend stats if { hdr_dom(host) -i local-haproxy }
-
-	default_backend apache
-
-backend apache
-	server apache 127.0.0.1:80
-
-backend stats
-	stats enable
-	stats uri /
-```
 
 ## Office
 `libreoffice-fresh libreoffice-fresh-fr`
