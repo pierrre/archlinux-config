@@ -27,6 +27,7 @@ EndSection
 ## Pacman
 /etc/pacman.d/mirrorlist
 ```
+Server = https://fooo.biz/archlinux/$repo/os/$arch
 Server = http://archlinux.polymorf.fr/$repo/os/$arch
 Server = http://mir.archlinux.fr/$repo/os/$arch
 ```
@@ -34,10 +35,6 @@ Server = http://mir.archlinux.fr/$repo/os/$arch
 /etc/pacman.conf
 ```
 ILoveCandy
-
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/$arch
 ```
 
 `yaourt`
@@ -74,25 +71,56 @@ Plugins: `git git-extras screen colored-man history-substring-search golang comp
 
 $HOME/.zshrc
 ```sh
-source $ZSH/oh-my-zsh.sh
-
 ulimit -n 4096
 
 export EDITOR=nano
 export PATH=$PATH:$HOME/Logiciels
 export CDPATH=.:$HOME
 
-export GIMME_GO_VERSION=1.5.3
-export GO15VENDOREXPERIMENT=1
-source $HOME/.gorc/gorc.sh
+alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
+alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
+
+export GIMME_GO_VERSION=1.6
+export GIMME=$HOME/.gimme
+export GIMME_TYPE=source
+export GIMME_SILENT_ENV=1
+export PATH=$PATH:$GIMME/bin
+export GIMME_ENV=$GIMME/envs/go$GIMME_GO_VERSION.env
+if [ -f "$GIMME_ENV" ]; then
+	source $GIMME_ENV
+fi
+gimme-update() {
+	mkdir -p $GIMME/bin
+	curl -o $GIMME/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+	chmod u+x $GIMME/bin/gimme
+}
+export GOPATH=$HOME/Go
+export PATH=$PATH:$GOPATH/bin
+export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
+gopath-update() {
+	go get -v -d -u -f .../
+	gopath-refresh
+}
+gopath-refresh() {
+	rm -rf $GOPATH/bin $GOPATH/pkg
+	go get -v -d golang.org/x/tools
+	go install -v golang.org/x/tools/cmd/benchcmp
+	go install -v golang.org/x/tools/cmd/godoc
+	go install -v golang.org/x/tools/cmd/goimports
+	go get -v -d github.com/golang/lint
+	go install -v github.com/golang/lint/golint
+	go get -v -d github.com/tools/godep
+	go install -v github.com/tools/godep
+	go get -v -d github.com/pierrre/gotestcover
+	go install -v github.com/pierrre/gotestcover
+	go get -v -d github.com/pierrre/hfs
+	go install -v github.com/pierrre/hfs
+}
 
 export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
 alias adb-screencap="adb exec-out screencap -p"
 alias fix-adb="sudo zsh -c 'killall adb;/home/pierre/Logiciels/android-sdk/platform-tools/adb start-server'"
 alias apktool="java -jar $HOME/Logiciels/apktool.jar"
-
-alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
-alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 ```
 
 ## Font
@@ -185,7 +213,7 @@ https://github.com/pierrre/gorc => `$HOME/.gorc`
 `libreoffice-fresh libreoffice-fresh-fr`
 
 ## Dropbox
-`dropbox thunar-dropbox`
+`dropbox`
 
 ## VirtualBox
 `virtualbox virtualbox-host-dkms virtualbox-host-modules virtualbox-ext-oracle`
