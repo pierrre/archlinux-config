@@ -107,8 +107,13 @@ gopath-refresh() {
 	go install -v golang.org/x/tools/cmd/benchcmp
 	go install -v golang.org/x/tools/cmd/godoc
 	go install -v golang.org/x/tools/cmd/goimports
+	go install -v golang.org/x/tools/cmd/oracle
 	go get -v -d github.com/golang/lint
 	go install -v github.com/golang/lint/golint
+	go get -v -d github.com/nsf/gocode
+	go install -v github.com/nsf/gocode
+	go get -v -d github.com/rogpeppe/godef
+	go install -v github.com/rogpeppe/godef
 	go get -v -d github.com/tools/godep
 	go install -v github.com/tools/godep
 	go get -v -d github.com/pierrre/gotestcover
