@@ -68,6 +68,19 @@ PKGEXT='.pkg.tar'
 ```
 Speeds up package build
 
+## Account
+```
+useradd -m -G wheel -s /bin/zsh USER
+passwd USER
+```
+
+/etc/sudoers
+```
+%wheel ALL=(ALL) ALL
+
+Defaults pwfeedback
+```
+
 ## SSH
 `openssh`
 
@@ -78,17 +91,6 @@ Service `sshd`
 ControlMaster auto
 ControlPath /tmp/%r@%h:%p
 ControlPersist yes
-```
-
-## Xorg
-/etc/X11/xorg.conf.d/10-keyboard.conf
-```
-Section "InputClass"
-	Identifier "system-keyboard"
-	MatchIsKeyboard "on"
-	Option "XkbLayout" "fr"
-	Option "XkbVariant" "latin9"
-EndSection
 ```
 
 ## Touchpad
@@ -102,25 +104,39 @@ https://wiki.archlinux.org/index.php/bumblebee
 `bumblebee mesa xf86-video-intel nvidia`
 
 Service `bumblebeed`
-`gpasswd -a user bumblebee`
+`gpasswd -a USER bumblebee`
 
 Test with `mesa mesa-demos` => glxgears, glxspheres
 
 For 32 bits apps `lib32-virtualgl lib32-nvidia-utils lib32-mesa-libgl`
+
+## Gnome
+`gnome gnome-extra`
+
+Service `gdm`
 
 ## LightDM
 https://wiki.archlinux.org/index.php/LightDM
 
 `lightdm lightdm-gtk-greeter`
 
-Enable autologin
-
 ## Xfce
 `xfce4 xfce4-goodies`
 
-`network-manager-applet gnome-keyring menulibre thunar-dropbox`
+`network-manager-applet gnome-keyring seahorse menulibre thunar-dropbox`
 
 `gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb`
+
+## Xorg
+/etc/X11/xorg.conf.d/10-keyboard.conf
+```
+Section "InputClass"
+	Identifier "system-keyboard"
+	MatchIsKeyboard "on"
+	Option "XkbLayout" "fr"
+	Option "XkbVariant" "latin9"
+EndSection
+```
 
 ## Font
 `adobe-source-sans-pro-fonts adobe-source-code-pro-fonts adobe-source-serif-pro-fonts`
