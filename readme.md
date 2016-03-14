@@ -258,6 +258,8 @@ gopath-refresh() {
 	go install -v github.com/rogpeppe/godef
 	go get -v -d github.com/tools/godep
 	go install -v github.com/tools/godep
+	go get -v -d github.com/russross/blackfriday-tool
+	go install -v github.com/russross/blackfriday-tool
 	go get -v -d github.com/pierrre/gotestcover
 	go install -v github.com/pierrre/gotestcover
 	go get -v -d github.com/pierrre/hfs
