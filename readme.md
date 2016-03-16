@@ -305,6 +305,27 @@ Service `org.cups.cupsd`
 
 `hplip`
 
+## Redshift
+https://wiki.archlinux.org/index.php/Redshift
+
+`redshift`
+
+~/.config/redshift.conf
+```
+[redshift]
+temp-day=6500
+temp-night=3400
+transition=1
+brightness-day=1
+brightness-night=0.5
+location-provider=manual
+adjustment-method=randr
+
+[manual]
+lat=48.86
+lon=2.35
+```
+
 ## Laptop LID switch
 /etc/systemd/logind.conf
 ```
