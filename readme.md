@@ -240,30 +240,21 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
-	go get -v -d -u -f .../
-	gopath-refresh
+    go get -v -d -u .../
+    gopath-refresh
 }
 gopath-refresh() {
-	rm -rf $GOPATH/bin $GOPATH/pkg
-	go get -v -d golang.org/x/tools
-	go install -v golang.org/x/tools/cmd/benchcmp
-	go install -v golang.org/x/tools/cmd/godoc
-	go install -v golang.org/x/tools/cmd/goimports
-	go install -v golang.org/x/tools/cmd/oracle
-	go get -v -d github.com/golang/lint
-	go install -v github.com/golang/lint/golint
-	go get -v -d github.com/nsf/gocode
-	go install -v github.com/nsf/gocode
-	go get -v -d github.com/rogpeppe/godef
-	go install -v github.com/rogpeppe/godef
-	go get -v -d github.com/tools/godep
-	go install -v github.com/tools/godep
-	go get -v -d github.com/russross/blackfriday-tool
-	go install -v github.com/russross/blackfriday-tool
-	go get -v -d github.com/pierrre/gotestcover
-	go install -v github.com/pierrre/gotestcover
-	go get -v -d github.com/pierrre/hfs
-	go install -v github.com/pierrre/hfs
+    rm -rf $GOPATH/bin $GOPATH/pkg
+    go get -v golang.org/x/tools/cmd/benchcmp
+    go get -v golang.org/x/tools/cmd/godoc
+    go get -v github.com/tools/godep
+    go get -v github.com/pierrre/gotestcover
+    go get -v github.com/pierrre/hfs
+}
+gocode-fix() {
+    gocode close
+    gocode set propose-builtins true
+    gocode set autobuild true
 }
 
 export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
