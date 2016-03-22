@@ -247,6 +247,7 @@ gopath-refresh() {
     rm -rf $GOPATH/bin $GOPATH/pkg
     go get -v golang.org/x/tools/cmd/benchcmp
     go get -v golang.org/x/tools/cmd/godoc
+	go get -v golang.org/x/review/git-codereview
     go get -v github.com/tools/godep
     go get -v github.com/pierrre/gotestcover
     go get -v github.com/pierrre/hfs
