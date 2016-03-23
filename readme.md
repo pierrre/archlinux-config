@@ -240,22 +240,22 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
-    go get -v -d -u .../
-    gopath-refresh
+	go get -v -d -u .../
+	gopath-refresh
 }
 gopath-refresh() {
-    rm -rf $GOPATH/bin $GOPATH/pkg
-    go get -v golang.org/x/tools/cmd/benchcmp
-    go get -v golang.org/x/tools/cmd/godoc
+	rm -rf $GOPATH/bin $GOPATH/pkg
+	go get -v golang.org/x/tools/cmd/benchcmp
+	go get -v golang.org/x/tools/cmd/godoc
 	go get -v golang.org/x/review/git-codereview
-    go get -v github.com/tools/godep
-    go get -v github.com/pierrre/gotestcover
-    go get -v github.com/pierrre/hfs
+	go get -v github.com/tools/godep
+	go get -v github.com/pierrre/gotestcover
+	go get -v github.com/pierrre/hfs
 }
 gocode-fix() {
-    gocode close
-    gocode set propose-builtins true
-    gocode set autobuild true
+	gocode close
+	gocode set propose-builtins true
+	gocode set autobuild true
 }
 
 export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
