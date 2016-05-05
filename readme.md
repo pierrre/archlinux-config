@@ -222,7 +222,7 @@ export CDPATH=.:$HOME
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
-export GIMME_GO_VERSION=1.6
+export GIMME_GO_VERSION=1.6.2
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
@@ -247,7 +247,13 @@ gopath-refresh() {
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
 	go get -v golang.org/x/tools/cmd/godoc
+	go get -v golang.org/x/tools/cmd/goimports
 	go get -v golang.org/x/review/git-codereview
+	go get -v github.com/nsf/gocode
+	go get -v github.com/rogpeppe/godef
+	go get -v github.com/alecthomas/gometalinter
+	gometalinter --install
+	go get -v rsc.io/benchstat
 	go get -v github.com/tools/godep
 	go get -v github.com/pierrre/gotestcover
 	go get -v github.com/pierrre/hfs
