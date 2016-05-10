@@ -248,7 +248,9 @@ gopath-refresh() {
 	go get -v golang.org/x/tools/cmd/benchcmp
 	go get -v golang.org/x/tools/cmd/godoc
 	go get -v golang.org/x/tools/cmd/goimports
+	go get -v golang.org/x/tools/cmd/gorename
 	go get -v golang.org/x/review/git-codereview
+	go get -v github.com/golang/lint/golint
 	go get -v github.com/nsf/gocode
 	go get -v github.com/rogpeppe/godef
 	go get -v github.com/alecthomas/gometalinter
