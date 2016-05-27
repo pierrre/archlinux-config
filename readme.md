@@ -289,6 +289,11 @@ alias apktool="java -jar $HOME/Logiciels/apktool.jar"
 
 `apm stars --user pierrre --install`
 
+Gometalinter arguments:
+```
+--vendor, --disable-all, --enable=gofmt, --enable=golint, --enable=vet, --enable=gosimple, --enable=ineffassign, --enable=deadcode, --tests, --json, .
+```
+
 ## Office
 `libreoffice-fresh libreoffice-fresh-fr`
 
