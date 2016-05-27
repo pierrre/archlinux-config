@@ -252,6 +252,7 @@ gopath-refresh() {
 	go get -v golang.org/x/review/git-codereview
 	go get -v github.com/golang/lint/golint
 	go get -v github.com/nsf/gocode
+	gocode-fix
 	go get -v github.com/rogpeppe/godef
 	go get -v github.com/alecthomas/gometalinter
 	gometalinter --install
