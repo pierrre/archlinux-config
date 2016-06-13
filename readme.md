@@ -258,8 +258,6 @@ gopath-refresh() {
 	gometalinter --install
 	go get -v rsc.io/benchstat
 	go get -v github.com/tools/godep
-	go get -v github.com/pierrre/gotestcover
-	go get -v github.com/pierrre/hfs
 }
 gocode-fix() {
 	gocode close
