@@ -240,7 +240,7 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
-	go get -v -d -u .../
+	go get -v -d -u -f .../
 	gopath-refresh
 }
 gopath-refresh() {
