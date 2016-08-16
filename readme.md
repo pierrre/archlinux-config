@@ -222,7 +222,7 @@ export CDPATH=.:$HOME
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
-export GIMME_GO_VERSION=1.6.2
+export GIMME_GO_VERSION=1.7
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
