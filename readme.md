@@ -222,6 +222,38 @@ export CDPATH=.:$HOME
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
+GITHUB_TOKEN=xxx
+git-clone-organization() {
+	org=$1
+	if [ -z "$org" ]; then
+		echo "no organization argument"
+		return 1
+	fi
+	urls=""
+	page=1
+	while true
+	do
+		json=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/orgs/$org/repos?page=$page&per_page=100")
+		tmp=$(echo $json | jq -r '.[].ssh_url')
+		if [ -z "$tmp" ]; then
+			break
+		fi
+		if [ "$page" -ne 1 ]; then
+			urls+=\\n
+		fi
+		urls+=$tmp
+		page=$((page+1))
+	done
+	echo $urls | parallel -v -j 16 git clone {}
+}
+git-pull-dir() {
+	dir=$1
+	if [ -z "$dir" ]; then
+		dir="."
+	fi
+	find $dir -mindepth 1 -maxdepth 1 -type d | parallel -v -j 16 git -C {} pull
+}
+
 export GIMME_GO_VERSION=1.7
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
