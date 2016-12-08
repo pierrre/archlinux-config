@@ -37,8 +37,6 @@ Service `systemd-timesyncd`
 
 `graphicsmagick`
 
-
-
 ## Pacman
 /etc/pacman.d/mirrorlist
 ```
@@ -90,7 +88,7 @@ Service `sshd`
 ```
 ControlMaster auto
 ControlPath /tmp/%r@%h:%p
-ControlPersist yes
+ControlPersist 5m
 ```
 
 ## Touchpad
@@ -209,7 +207,7 @@ EndSection
 ```
 
 ## Appearance
-`faenza-icon-theme zukitwo-themes`
+`faenza-icon-theme arc-gtk-theme`
 
 ## Shell
 `zsh`
@@ -261,10 +259,11 @@ git-pull-dir() {
 	find $dir -mindepth 1 -maxdepth 1 -type d | parallel -v -j 16 git -C {} pull
 }
 
-export GIMME_GO_VERSION=1.7
+export GIMME_GO_VERSION=1.7.4
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
+export GIMME_DEBUG=1
 export PATH=$PATH:$GIMME/bin
 export GIMME_ENV=$GIMME/envs/go$GIMME_GO_VERSION.env
 if [ -f "$GIMME_ENV" ]; then
