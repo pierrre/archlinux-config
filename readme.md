@@ -292,6 +292,7 @@ gopath-refresh() {
 	go get -v github.com/nsf/gocode
 	gocode-fix
 	go get -v github.com/rogpeppe/godef
+	go get -v github.com/zmb3/gogetdoc
 	go get -v github.com/alecthomas/gometalinter
 	gometalinter --install
 	go get -v rsc.io/benchstat
