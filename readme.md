@@ -287,16 +287,16 @@ gopath-refresh() {
 	go get -v golang.org/x/tools/cmd/godoc
 	go get -v golang.org/x/tools/cmd/goimports
 	go get -v golang.org/x/tools/cmd/gorename
-	go get -v golang.org/x/review/git-codereview
-	go get -v github.com/golang/lint/golint
+	go get -v golang.org/x/tools/cmd/guru
+	go get -v github.com/sqs/goreturns
 	go get -v github.com/nsf/gocode
 	gocode-fix
 	go get -v github.com/rogpeppe/godef
 	go get -v github.com/zmb3/gogetdoc
 	go get -v github.com/alecthomas/gometalinter
 	gometalinter --install
-	go get -v rsc.io/benchstat
 	go get -v github.com/tools/godep
+	go get -v github.com/derekparker/delve/cmd/dlv
 }
 gocode-fix() {
 	gocode close
