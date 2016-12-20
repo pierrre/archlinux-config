@@ -296,7 +296,6 @@ gopath-refresh() {
 	go get -v github.com/alecthomas/gometalinter
 	gometalinter --install
 	go get -v github.com/tools/godep
-	go get -v github.com/derekparker/delve/cmd/dlv
 }
 gocode-fix() {
 	gocode close
