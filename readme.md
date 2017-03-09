@@ -307,6 +307,11 @@ export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
 alias adb-screencap="adb exec-out screencap -p"
 alias fix-adb="sudo zsh -c 'killall adb;/home/pierre/Logiciels/android-sdk/platform-tools/adb start-server'"
 alias apktool="java -jar $HOME/Logiciels/apktool.jar"
+
+alias start-docker="sudo systemctl start docker"
+alias start-mongo="docker pull mongo; docker container run --rm --detach --net=host --name=mongo mongo"
+alias start-rabbitmq="docker pull rabbitmq:management-alpine; docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine"
+alias start-redis="docker pull redis:alpine; docker container run --rm --detach --net=host --name=redis redis:alpine"
 ```
 
 ## GUI Tools
