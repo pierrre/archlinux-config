@@ -334,7 +334,7 @@ alias start-redis="docker pull redis:alpine; docker container run --rm --detach 
 
 Gometalinter arguments:
 ```
---vendor, --disable-all, --enable=gofmt, --enable=golint, --enable=vet, --enable=gosimple, --enable=ineffassign, --enable=deadcode, --tests, --json, .
+--vendor, --disable-all, --enable=golint, --enable=vet, --enable=gosimple, --enable=ineffassign, --enable=deadcode, --tests, --json, --deadline=30s, .
 ```
 
 ## Office
