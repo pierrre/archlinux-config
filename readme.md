@@ -284,24 +284,8 @@ gopath-update() {
 gopath-refresh() {
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
-	go get -v golang.org/x/tools/cmd/godoc
-	go get -v golang.org/x/tools/cmd/goimports
-	go get -v golang.org/x/tools/cmd/gorename
-	go get -v golang.org/x/tools/cmd/guru
-	go get -v github.com/sqs/goreturns
-	go get -v github.com/nsf/gocode
-	gocode-fix
-	go get -v github.com/rogpeppe/godef
-	go get -v github.com/zmb3/gogetdoc
-	go get -v github.com/alecthomas/gometalinter
-	gometalinter --install
 	go get -v github.com/tools/godep
 	go get -v github.com/rakyll/hey
-}
-gocode-fix() {
-	gocode close
-	gocode set propose-builtins true
-	gocode set autobuild true
 }
 
 export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
