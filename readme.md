@@ -259,7 +259,7 @@ git-pull-dir() {
 	find $dir -mindepth 1 -maxdepth 1 -type d | parallel -v -j 16 git -C {} pull
 }
 
-export GIMME_GO_VERSION=1.7.4
+export GIMME_GO_VERSION=1.8
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
