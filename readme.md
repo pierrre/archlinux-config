@@ -259,7 +259,7 @@ git-pull-dir() {
 	find $dir -mindepth 1 -maxdepth 1 -type d | parallel -v -j 16 git -C {} pull
 }
 
-export GIMME_GO_VERSION=1.8
+export GIMME_GO_VERSION=1.8.1
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
@@ -284,6 +284,7 @@ gopath-update() {
 gopath-refresh() {
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
+	go get -v golang.org/x/tools/cmd/godoc
 	go get -v github.com/tools/godep
 	go get -v github.com/rakyll/hey
 }
