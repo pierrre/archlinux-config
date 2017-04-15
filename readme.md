@@ -229,6 +229,7 @@ alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {
+	set -ex
 	org=$1
 	if [ -z "$org" ]; then
 		echo "no organization argument"
@@ -249,14 +250,15 @@ git-clone-organization() {
 		urls+=$tmp
 		page=$((page+1))
 	done
-	echo $urls | parallel -v -j 16 git clone {}
+	echo $urls | parallel -v -j 8 git clone {}
 }
 git-pull-dir() {
+	set -ex
 	dir=$1
 	if [ -z "$dir" ]; then
 		dir="."
 	fi
-	find $dir -mindepth 1 -maxdepth 1 -type d | parallel -v -j 16 git -C {} pull
+	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull
 }
 
 export GIMME_GO_VERSION=1.8.1
@@ -270,6 +272,7 @@ if [ -f "$GIMME_ENV" ]; then
 	source $GIMME_ENV
 fi
 gimme-update() {
+	set -ex
 	mkdir -p $GIMME/bin
 	curl -o $GIMME/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
 	chmod u+x $GIMME/bin/gimme
@@ -278,13 +281,17 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
-	go get -v -d -u -f .../
+	set -ex
+	git-pull-dir $GOPATH
+	go get -v -d .../
 	gopath-refresh
 }
 gopath-refresh() {
+	set -ex
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
 	go get -v golang.org/x/tools/cmd/godoc
+	go get -v github.com/golang/dep/cmd/dep
 	go get -v github.com/tools/godep
 	go get -v github.com/rakyll/hey
 }
