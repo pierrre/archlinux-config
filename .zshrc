@@ -62,7 +62,7 @@ gimme-update() {
 	curl -o $GIMME/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
 	chmod u+x $GIMME/bin/gimme
 }
-export GOPATH=$HOME/Go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
