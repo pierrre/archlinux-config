@@ -2,7 +2,7 @@ ulimit -n 4096
 
 export ZSH=/home/pierre/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git git-extras colored-man history-substring-search golang)
+plugins=(git git-extras colored-man-pages history-substring-search golang)
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nano
