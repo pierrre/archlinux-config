@@ -63,7 +63,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
-	git-pull-dir $GOPATH
+	# go get -v -d -u -f .../
+	git-pull-dir $GOPATH/src
 	go get -v -d .../
 	gopath-refresh
 }
