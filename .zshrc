@@ -73,7 +73,6 @@ gopath-refresh() {
 	go get -v golang.org/x/tools/cmd/benchcmp
 	go get -v golang.org/x/tools/cmd/godoc
 	go get -v github.com/golang/dep/cmd/dep
-	go get -v github.com/tools/godep
 	go get -v github.com/rakyll/hey
 }
 
