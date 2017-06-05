@@ -41,10 +41,10 @@ git-pull-dir() {
 	if [ -z "$dir" ]; then
 		dir="."
 	fi
-	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull
+	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 }
 
-export GIMME_GO_VERSION=1.8.1
+export GIMME_GO_VERSION=1.8.3
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
