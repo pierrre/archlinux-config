@@ -1,0 +1,11 @@
+[user]
+	name = Pierre Durand
+	email = pierredurand@gmail.com
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[gc]
+	autoDetach = false
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
