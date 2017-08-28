@@ -72,6 +72,7 @@ gopath-refresh() {
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
 	go get -v golang.org/x/tools/cmd/godoc
+	go get -v github.com/google/pprof
 	go get -v github.com/golang/dep/cmd/dep
 	go get -v github.com/rakyll/hey
 }
