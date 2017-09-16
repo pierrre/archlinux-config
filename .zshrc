@@ -81,3 +81,11 @@ alias start-docker="sudo systemctl start docker"
 alias start-mongo="docker pull mongo; docker container run --rm --detach --net=host --name=mongo mongo"
 alias start-rabbitmq="docker pull rabbitmq:management-alpine; docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine"
 alias start-redis="docker pull redis:alpine; docker container run --rm --detach --net=host --name=redis redis:alpine"
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+	ssh-agent > ~/.ssh-agent-thing
+	ssh-add > /dev/null 2>&1
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+	eval "$(<~/.ssh-agent-thing)" > /dev/null
+fi
