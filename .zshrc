@@ -77,10 +77,27 @@ gopath-refresh() {
 	go get -v github.com/rakyll/hey
 }
 
-alias start-docker="sudo systemctl start docker"
-alias start-mongo="docker pull mongo; docker container run --rm --detach --net=host --name=mongo mongo"
-alias start-rabbitmq="docker pull rabbitmq:management-alpine; docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine"
-alias start-redis="docker pull redis:alpine; docker container run --rm --detach --net=host --name=redis redis:alpine"
+start-docker() {
+	sudo systemctl start docker
+}
+start-mongo() {
+	start-docker
+	docker pull mongo
+	docker container run --rm --detach --net=host --name=mongo mongo
+}
+start-rabbitmq() {
+	start-docker
+	docker pull rabbitmq:management-alpine
+	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
+	sleep 1
+	docker container exec -it rabbitmq sh -c 'rabbitmqctl wait /var/lib/rabbitmq/mnesia/*.pid'
+	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
+}
+start-redis() {
+	start-docker
+	docker pull redis:alpine
+	docker container run --rm --detach --net=host --name=redis redis:alpine
+}
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 	ssh-agent > ~/.ssh-agent-thing
