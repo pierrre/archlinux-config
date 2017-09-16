@@ -44,7 +44,7 @@ git-pull-dir() {
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 }
 
-export GIMME_GO_VERSION=1.8.3
+export GIMME_GO_VERSION=1.9
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
@@ -76,11 +76,6 @@ gopath-refresh() {
 	go get -v github.com/golang/dep/cmd/dep
 	go get -v github.com/rakyll/hey
 }
-
-export PATH=$PATH:$HOME/Logiciels/android-sdk/platform-tools
-alias adb-screencap="adb exec-out screencap -p"
-alias fix-adb="sudo zsh -c 'killall adb;/home/pierre/Logiciels/android-sdk/platform-tools/adb start-server'"
-alias apktool="java -jar $HOME/Logiciels/apktool.jar"
 
 alias start-docker="sudo systemctl start docker"
 alias start-mongo="docker pull mongo; docker container run --rm --detach --net=host --name=mongo mongo"
