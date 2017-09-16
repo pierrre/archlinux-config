@@ -21,14 +21,17 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 start-docker() {
+	set -ex
 	sudo systemctl start docker
 }
 start-mongo() {
+	set -ex
 	start-docker
 	docker pull mongo
 	docker container run --rm --detach --net=host --name=mongo mongo
 }
 start-rabbitmq() {
+	set -ex
 	start-docker
 	docker pull rabbitmq:management-alpine
 	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
@@ -37,6 +40,7 @@ start-rabbitmq() {
 	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
 }
 start-redis() {
+	set -ex
 	start-docker
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
@@ -44,6 +48,7 @@ start-redis() {
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {
+	set -ex
 	org=$1
 	if [ -z "$org" ]; then
 		echo "no organization argument"
@@ -67,6 +72,7 @@ git-clone-organization() {
 	echo $urls | parallel -v -j 8 git clone {}
 }
 git-pull-dir() {
+	set -ex
 	dir=$1
 	if [ -z "$dir" ]; then
 		dir="."
@@ -85,6 +91,7 @@ if [ -f "$GIMME_ENV" ]; then
 	source $GIMME_ENV
 fi
 gimme-update() {
+	set -ex
 	mkdir -p $GIMME/bin
 	curl -o $GIMME/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
 	chmod u+x $GIMME/bin/gimme
@@ -93,12 +100,14 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {
+	set -ex
 	# go get -v -d -u -f .../
 	git-pull-dir $GOPATH/src
 	go get -v -d .../
 	gopath-refresh
 }
 gopath-refresh() {
+	set -ex
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
 	go get -v golang.org/x/tools/cmd/godoc
@@ -106,4 +115,3 @@ gopath-refresh() {
 	go get -v github.com/golang/dep/cmd/dep
 	go get -v github.com/rakyll/hey
 }
-
