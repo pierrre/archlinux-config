@@ -12,6 +12,36 @@ export CDPATH=.:$HOME
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+	ssh-agent > ~/.ssh-agent-thing
+	ssh-add > /dev/null 2>&1
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+	eval "$(<~/.ssh-agent-thing)" > /dev/null
+fi
+
+start-docker() {
+	sudo systemctl start docker
+}
+start-mongo() {
+	start-docker
+	docker pull mongo
+	docker container run --rm --detach --net=host --name=mongo mongo
+}
+start-rabbitmq() {
+	start-docker
+	docker pull rabbitmq:management-alpine
+	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
+	sleep 1
+	docker container exec -it rabbitmq sh -c 'rabbitmqctl wait /var/lib/rabbitmq/mnesia/*.pid'
+	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
+}
+start-redis() {
+	start-docker
+	docker pull redis:alpine
+	docker container run --rm --detach --net=host --name=redis redis:alpine
+}
+
 GITHUB_TOKEN=xxx
 git-clone-organization() {
 	org=$1
@@ -77,32 +107,3 @@ gopath-refresh() {
 	go get -v github.com/rakyll/hey
 }
 
-start-docker() {
-	sudo systemctl start docker
-}
-start-mongo() {
-	start-docker
-	docker pull mongo
-	docker container run --rm --detach --net=host --name=mongo mongo
-}
-start-rabbitmq() {
-	start-docker
-	docker pull rabbitmq:management-alpine
-	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
-	sleep 1
-	docker container exec -it rabbitmq sh -c 'rabbitmqctl wait /var/lib/rabbitmq/mnesia/*.pid'
-	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
-}
-start-redis() {
-	start-docker
-	docker pull redis:alpine
-	docker container run --rm --detach --net=host --name=redis redis:alpine
-}
-
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-	ssh-agent > ~/.ssh-agent-thing
-	ssh-add > /dev/null 2>&1
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-	eval "$(<~/.ssh-agent-thing)" > /dev/null
-fi
