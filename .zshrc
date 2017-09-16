@@ -14,10 +14,10 @@ alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 	ssh-agent > ~/.ssh-agent-thing
-	ssh-add > /dev/null 2>&1
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(<~/.ssh-agent-thing)" > /dev/null
+	ssh-add > /dev/null 2>&1
 fi
 
 start-docker() {
