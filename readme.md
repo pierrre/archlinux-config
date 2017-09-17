@@ -86,9 +86,10 @@ Service `sshd`
 
 .ssh/config
 ```
-ControlMaster auto
-ControlPath /tmp/%r@%h:%p
-ControlPersist 5m
+Host github.com
+	ControlMaster auto
+	ControlPath /tmp/%r@%h:%p
+	ControlPersist 5m
 ```
 
 ## Touchpad
