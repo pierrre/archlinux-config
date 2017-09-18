@@ -48,7 +48,7 @@ start-redis() {
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {
-	set -ex
+	set -x
 	org=$1
 	if [ -z "$org" ]; then
 		echo "no organization argument"
