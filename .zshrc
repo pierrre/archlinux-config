@@ -20,35 +20,33 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 	ssh-add > /dev/null 2>&1
 fi
 
-start-docker() {
+start-docker() {(
 	set -ex
 	sudo systemctl start docker
-}
-start-mongo() {
+)}
+start-mongo() {(
 	set -ex
 	start-docker
 	docker pull mongo
 	docker container run --rm --detach --net=host --name=mongo mongo
-}
-start-rabbitmq() {
+)}
+start-rabbitmq() {(
 	set -ex
 	start-docker
 	docker pull rabbitmq:management-alpine
 	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
-	sleep 1
-	docker container exec -it rabbitmq sh -c 'rabbitmqctl wait /var/lib/rabbitmq/mnesia/*.pid'
 	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
-}
-start-redis() {
+)}
+start-redis() {(
 	set -ex
 	start-docker
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
-}
+)}
 
 GITHUB_TOKEN=xxx
-git-clone-organization() {
-	set -x
+git-clone-organization() {(
+	set -ex
 	org=$1
 	if [ -z "$org" ]; then
 		echo "no organization argument"
@@ -69,16 +67,19 @@ git-clone-organization() {
 		urls+=$tmp
 		page=$((page+1))
 	done
-	echo $urls | parallel -v -j 8 git clone {}
-}
-git-pull-dir() {
+	(
+		set +e
+		echo $urls | parallel -v -j 8 git clone {}
+	)
+)}
+git-pull-dir() {(
 	set -ex
 	dir=$1
 	if [ -z "$dir" ]; then
 		dir="."
 	fi
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
-}
+)}
 
 export GIMME_GO_VERSION=1.9
 export GIMME=$HOME/.gimme
@@ -90,23 +91,23 @@ export GIMME_ENV=$GIMME/envs/go$GIMME_GO_VERSION.env
 if [ -f "$GIMME_ENV" ]; then
 	source $GIMME_ENV
 fi
-gimme-update() {
+gimme-update() {(
 	set -ex
 	mkdir -p $GIMME/bin
 	curl -o $GIMME/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
 	chmod u+x $GIMME/bin/gimme
-}
+)}
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
-gopath-update() {
+gopath-update() {(
 	set -ex
 	# go get -v -d -u -f .../
 	git-pull-dir $GOPATH/src
 	go get -v -d .../
 	gopath-refresh
-}
-gopath-refresh() {
+)}
+gopath-refresh() {(
 	set -ex
 	rm -rf $GOPATH/bin $GOPATH/pkg
 	go get -v golang.org/x/tools/cmd/benchcmp
@@ -114,4 +115,4 @@ gopath-refresh() {
 	go get -v github.com/google/pprof
 	go get -v github.com/golang/dep/cmd/dep
 	go get -v github.com/rakyll/hey
-}
+)}
