@@ -110,9 +110,10 @@ gopath-update() {(
 gopath-refresh() {(
 	set -ex
 	rm -rf $GOPATH/bin $GOPATH/pkg
-	go get -v golang.org/x/tools/cmd/benchcmp
-	go get -v golang.org/x/tools/cmd/godoc
-	go get -v github.com/google/pprof
-	go get -v github.com/golang/dep/cmd/dep
-	go get -v github.com/rakyll/hey
+	go get -v\
+	golang.org/x/tools/cmd/benchcmp\
+	golang.org/x/tools/cmd/godoc\
+	github.com/google/pprof\
+	github.com/golang/dep/cmd/dep\
+	github.com/rakyll/hey
 )}
