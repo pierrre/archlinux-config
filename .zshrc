@@ -35,6 +35,7 @@ start-rabbitmq() {(
 	start-docker
 	docker pull rabbitmq:management-alpine
 	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
+	sleep 5
 	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
 )}
 start-redis() {(
