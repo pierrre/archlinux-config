@@ -5,6 +5,8 @@ ZSH_THEME="robbyrussell"
 plugins=(git git-extras colored-man-pages history-substring-search golang)
 source $ZSH/oh-my-zsh.sh
 
+zstyle ":completion:*:commands" rehash 1
+
 export EDITOR=nano
 export PATH=$PATH:$HOME/Logiciels
 export CDPATH=.:$HOME
