@@ -171,35 +171,31 @@ EndSection
 	<alias>
 		<family>sans-serif</family>
 		<prefer>
-			<family>Source Sans Pro</family>
+			<family>Noto Sans</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>serif</family>
 		<prefer>
-			<family>Source Serif Pro</family>
+			<family>Noto Serif</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>Source Code Pro</family>
+			<family>Noto Mono</family>
 		</prefer>
 	</alias>
 
 	<!-- disable -->
 	<selectfont>
 		<rejectfont>
+			<glob>/usr/share/fonts/cantarell</glob>
+			<glob>/usr/share/fonts/gsfonts</glob>
 			<glob>/usr/share/fonts/misc</glob>
-			<glob>/usr/share/fonts/OTF/C059*</glob>
-			<glob>/usr/share/fonts/OTF/D050000L.otf</glob>
 			<glob>/usr/share/fonts/OTF/GohaTibebZemen.otf</glob>
-			<glob>/usr/share/fonts/OTF/Nimbus*</glob>
-			<glob>/usr/share/fonts/OTF/P052*</glob>
-			<glob>/usr/share/fonts/OTF/StandardSymbolsPS.otf</glob>
 			<glob>/usr/share/fonts/OTF/SyrCOM*</glob>
-			<glob>/usr/share/fonts/OTF/URW*</glob>
-			<glob>/usr/share/fonts/OTF/Z003-MediumItalic.otf</glob>
+			<glob>/usr/share/fonts/TTF/DejaVu*</glob>
 			<glob>/usr/share/fonts/TTF/GohaTibebZemen.ttf</glob>
 			<glob>/usr/share/fonts/Type1</glob>
 		</rejectfont>
