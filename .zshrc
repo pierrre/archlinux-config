@@ -37,7 +37,7 @@ start-rabbitmq() {(
 	start-docker
 	docker pull rabbitmq:management-alpine
 	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
-	sleep 5
+	sleep 10
 	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
 )}
 start-redis() {(
@@ -84,7 +84,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 )}
 
-export GIMME_GO_VERSION=1.10rc1
+export GIMME_GO_VERSION=1.10rc2
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
