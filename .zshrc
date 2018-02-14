@@ -112,7 +112,7 @@ gopath-update() {(
 )}
 gopath-refresh() {(
 	set -ex
-	rm -rf $GOPATH/bin
+	rm -rf $GOPATH/bin $GOPATH/pkg/$(go env GOOS)_$(go env GOARCH)
 	go get -v\
 	golang.org/x/tools/cmd/benchcmp\
 	golang.org/x/tools/cmd/godoc\
