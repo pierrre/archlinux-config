@@ -183,7 +183,7 @@ EndSection
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>Noto Mono</family>
+			<family>Noto Sans Mono</family>
 		</prefer>
 	</alias>
 
