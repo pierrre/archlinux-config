@@ -2,7 +2,16 @@ ulimit -n 4096
 
 export ZSH=/home/pierre/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git git-extras colored-man-pages history-substring-search golang)
+plugins=(
+	colored-man-pages
+	docker
+	docker-compose
+	git
+	git-extras
+	golang
+	history-substring-search
+	kubectl
+)
 source $ZSH/oh-my-zsh.sh
 
 zstyle ":completion:*:commands" rehash 1
@@ -21,6 +30,9 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval "$(<~/.ssh-agent-thing)" > /dev/null
 	ssh-add > /dev/null 2>&1
 fi
+
+if [ -f '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/pierre/Logiciels/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/completion.zsh.inc'; fi
 
 start-docker() {(
 	set -ex
