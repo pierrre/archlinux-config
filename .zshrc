@@ -117,9 +117,7 @@ export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
 gopath-update() {(
 	set -ex
-	# go get -v -d -u -f .../
 	git-pull-dir $GOPATH/src
-	go get -v -d .../
 	gopath-refresh
 )}
 gopath-refresh() {(
