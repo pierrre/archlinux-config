@@ -1,5 +1,7 @@
 ulimit -n 4096
 
+if [ -f '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc'; fi
+
 export ZSH=/home/pierre/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(
@@ -13,7 +15,6 @@ plugins=(
 	kubectl
 )
 source $ZSH/oh-my-zsh.sh
-
 zstyle ":completion:*:commands" rehash 1
 
 export EDITOR=nano
@@ -31,7 +32,6 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 	ssh-add > /dev/null 2>&1
 fi
 
-if [ -f '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/home/pierre/Logiciels/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/completion.zsh.inc'; fi
 
 start-docker() {(
@@ -96,7 +96,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 )}
 
-export GIMME_GO_VERSION=1.10.1
+export GIMME_GO_VERSION=1.10.2
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
