@@ -171,19 +171,19 @@ EndSection
 	<alias>
 		<family>sans-serif</family>
 		<prefer>
-			<family>Noto Sans</family>
+			<family>Source Sans Pro</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>serif</family>
 		<prefer>
-			<family>Noto Serif</family>
+			<family>Source Serif Pro</family>
 		</prefer>
 	</alias>
 	<alias>
 		<family>monospace</family>
 		<prefer>
-			<family>Noto Sans Mono</family>
+			<family>Source Code Pro</family>
 		</prefer>
 	</alias>
 
@@ -195,6 +195,7 @@ EndSection
 			<glob>/usr/share/fonts/misc</glob>
 			<glob>/usr/share/fonts/OTF/GohaTibebZemen.otf</glob>
 			<glob>/usr/share/fonts/OTF/SyrCOM*</glob>
+			<!-- <glob>/usr/share/fonts/TTF/DejaVu*</glob> -->
 			<glob>/usr/share/fonts/TTF/GohaTibebZemen.ttf</glob>
 			<glob>/usr/share/fonts/Type1</glob>
 		</rejectfont>
