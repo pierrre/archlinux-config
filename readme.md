@@ -114,31 +114,8 @@ For 32 bits apps `lib32-virtualgl lib32-nvidia-utils lib32-mesa-libgl`
 
 Service `gdm`
 
-## LightDM
-https://wiki.archlinux.org/index.php/LightDM
-
-`lightdm lightdm-gtk-greeter`
-
-## Xfce
-`xfce4 xfce4-goodies`
-
-`network-manager-applet gnome-keyring seahorse menulibre thunar-dropbox`
-
-`gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb`
-
-## Xorg
-/etc/X11/xorg.conf.d/10-keyboard.conf
-```
-Section "InputClass"
-	Identifier "system-keyboard"
-	MatchIsKeyboard "on"
-	Option "XkbLayout" "fr"
-	Option "XkbVariant" "latin9"
-EndSection
-```
-
 ## Font
-`adobe-source-sans-pro-fonts adobe-source-code-pro-fonts adobe-source-serif-pro-fonts`
+`adobe-source-*-fonts`
 
 ~/.config/fontconfig/fonts.conf
 ```xml
@@ -211,38 +188,14 @@ EndSection
 
 https://github.com/robbyrussell/oh-my-zsh
 
-Plugins: `git git-extras colored-man history-substring-search golang`
-
 ## GUI Tools
 `meld baobab`
 
 ## Web
 `google-chrome-dev firefox firefox-i18n-fr`
 
-## Java
-`jdk`
-
 ## Development
-`smartgit phpstorm`
-
-## Atom
-`atom-editor`
-
-`apm stars --user pierrre --install`
-
-Gometalinter arguments:
-```
---vendor, --disable-all, --enable=golint, --enable=vet, --enable=gosimple, --enable=ineffassign, --enable=deadcode, --tests, --json, --deadline=30s, .
-```
-
-## Office
-`libreoffice-fresh libreoffice-fresh-fr`
-
-## Dropbox
-`dropbox`
-
-## Gimp
-`gimp`
+`smartgit`
 
 ## Printer
 `system-config-printer cups`
@@ -250,27 +203,6 @@ Gometalinter arguments:
 Service `org.cups.cupsd`
 
 `hplip`
-
-## Redshift
-https://wiki.archlinux.org/index.php/Redshift
-
-`redshift`
-
-~/.config/redshift.conf
-```
-[redshift]
-temp-day=6500
-temp-night=3400
-transition=1
-brightness-day=1
-brightness-night=0.5
-location-provider=manual
-adjustment-method=randr
-
-[manual]
-lat=48.86
-lon=2.35
-```
 
 ## Laptop LID switch
 /etc/systemd/logind.conf
