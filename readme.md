@@ -209,3 +209,12 @@ Service `org.cups.cupsd`
 ```
 HandleLidSwitch=ignore
 ```
+
+## Bluetooth
+Service `bluetooth`
+
+https://wiki.archlinux.org/index.php/Bluetooth_headset#Connecting_works.2C_but_I_cannot_play_sound
+```
+mkdir -p  /var/lib/gdm/.config/systemd/user
+ln -s /dev/null  /var/lib/gdm/.config/systemd/user/pulseaudio.socket
+```
