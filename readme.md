@@ -192,7 +192,7 @@ https://github.com/robbyrussell/oh-my-zsh
 `meld baobab`
 
 ## Web
-`google-chrome-dev firefox firefox-i18n-fr`
+`google-chrome chrome-gnome-shell`
 
 ## Development
 `smartgit`
