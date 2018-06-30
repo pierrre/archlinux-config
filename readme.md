@@ -218,3 +218,6 @@ https://wiki.archlinux.org/index.php/Bluetooth_headset#Connecting_works.2C_but_I
 mkdir -p  /var/lib/gdm/.config/systemd/user
 ln -s /dev/null  /var/lib/gdm/.config/systemd/user/pulseaudio.socket
 ```
+
+## NTFS
+`ntfs-3g`
