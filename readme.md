@@ -19,6 +19,12 @@ https://wiki.archlinux.org/index.php/microcode
 vm.swappiness=10
 ```
 
+## Max user watches
+/etc/sysctl.d/99-sysctl.conf
+```
+fs.inotify.max_user_watches=524288
+```
+
 ## Useful services
 Service `systemd-timesyncd`
 
