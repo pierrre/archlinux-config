@@ -180,7 +180,6 @@ Service `gdm`
 			<glob>/usr/share/fonts/misc</glob>
 			<glob>/usr/share/fonts/OTF/GohaTibebZemen.otf</glob>
 			<glob>/usr/share/fonts/OTF/SyrCOM*</glob>
-			<!-- <glob>/usr/share/fonts/TTF/DejaVu*</glob> -->
 			<glob>/usr/share/fonts/TTF/GohaTibebZemen.ttf</glob>
 			<glob>/usr/share/fonts/Type1</glob>
 		</rejectfont>
