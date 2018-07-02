@@ -206,6 +206,11 @@ https://github.com/robbyrussell/oh-my-zsh
 
 `visual-studio-code-bin`
 
+`docker docker-compose`
+```
+sudo gpasswd -a USER docker
+```
+
 ## Printer
 `system-config-printer cups`
 
