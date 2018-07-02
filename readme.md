@@ -33,6 +33,8 @@ Service `systemd-timesyncd`
 
 `parallel unzip`
 
+`jq`
+
 `speedtest-cli youtube-dl`
 
 `graphicsmagick`
@@ -196,6 +198,8 @@ https://github.com/robbyrussell/oh-my-zsh
 
 ## Development
 `smartgit`
+
+`visual-studio-code-bin`
 
 ## Printer
 `system-config-printer cups`
