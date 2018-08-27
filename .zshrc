@@ -96,7 +96,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 )}
 
-export GIMME_GO_VERSION=1.10.2
+export GIMME_GO_VERSION=1.11
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
