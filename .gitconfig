@@ -1,10 +1,13 @@
 [user]
 	name = Pierre Durand
 	email = pierredurand@gmail.com
-[branch]
-	autosetuprebase = always
+[fetch]
+	prune = true
+	pruneTags = true
 [pull]
 	rebase = true
+[branch]
+	autosetuprebase = always
 [gc]
 	autoDetach = false
 [smartgit "fetch"]
