@@ -41,13 +41,13 @@ start-docker() {(
 start-mongo() {(
 	set -ex
 	start-docker
-	docker pull mongo
-	docker container run --rm --detach --net=host --name=mongo mongo
+	docker image pull mongo:latest
+	docker container run --rm --detach --net=host --name=mongo mongo:latest
 )}
 start-rabbitmq() {(
 	set -ex
 	start-docker
-	docker pull rabbitmq:management-alpine
+	docker image pull rabbitmq:management-alpine
 	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
 	sleep 10
 	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
@@ -58,6 +58,7 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
+alias dive='docker image pull wagoodman/dive:latest && docker container run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/bin/docker wagoodman/dive:latest'
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {(
