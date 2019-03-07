@@ -3,6 +3,9 @@
 ## Base
 `base base-devel`
 
+## LTS
+`linux-lts`
+
 ## Network
 `iw wpa_supplicant dialog networkmanager`
 
@@ -12,6 +15,26 @@ Service `NetworkManager` (after installing GUI)
 https://wiki.archlinux.org/index.php/microcode
 
 `intel-ucode`
+
+## Bootloader
+https://wiki.archlinux.org/index.php/Systemd-boot
+
+/boot/loader/loader.conf
+```
+default		arch
+timeout		0
+```
+
+/boot/loader/entries/arch.conf
+```
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root=LABEL=root rw
+```
+
+Do an LTS entry.
 
 ## Swappiness
 /etc/sysctl.d/99-sysctl.conf
@@ -31,6 +54,8 @@ Service `systemd-timesyncd`
 `haveged` +service
 
 ## Tools
+`zsh`
+
 `wget`
 
 `git subversion mercurial`
@@ -60,13 +85,8 @@ ILoveCandy
 
 Enable multilib
 
-## Yaourt
-https://archlinux.fr/yaourt
-
-/etc/yaourtrc
-```
-DIFFEDITCMD="meld"
-```
+## Yay
+https://github.com/Jguer/yay
 
 /etc/makepkg.conf
 ```
@@ -104,6 +124,18 @@ Host github.com
 Use libinuput instead of evdev
 
 `xf86-input-synaptics`
+
+## Keyboard X11
+/etc/X11/xorg.conf.d/00-keyboard.conf
+
+```
+Section "InputClass"
+	Identifier "system-keyboard"
+	MatchIsKeyboard "on"
+	Option "XkbLayout" "fr"
+	Option "XkbVariant" "latin9"
+EndSection
+```
 
 ## Bumblebee / Optimus / Nvidia
 https://wiki.archlinux.org/index.php/bumblebee
@@ -196,7 +228,7 @@ Service `gdm`
 https://github.com/robbyrussell/oh-my-zsh
 
 ## GUI Tools
-`meld baobab`
+`meld baobab menulibre`
 
 ## Web
 `google-chrome chrome-gnome-shell`
