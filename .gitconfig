@@ -1,6 +1,8 @@
 [user]
 	name = Pierre Durand
 	email = pierredurand@gmail.com
+[core]
+	commitGraph = true
 [fetch]
 	prune = true
 	pruneTags = true
@@ -10,5 +12,6 @@
 	autosetuprebase = always
 [gc]
 	autoDetach = false
+	writeCommitGraph = true
 [smartgit "fetch"]
 	tags = true
