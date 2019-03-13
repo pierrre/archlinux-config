@@ -3,6 +3,8 @@
 	email = pierredurand@gmail.com
 [core]
 	commitGraph = true
+[protocol]
+	version = 2
 [fetch]
 	prune = true
 	pruneTags = true
