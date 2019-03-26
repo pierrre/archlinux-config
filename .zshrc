@@ -42,7 +42,9 @@ start-mongo() {(
 	set -ex
 	start-docker
 	docker image pull mongo:latest
-	docker container run --rm --detach --net=host --name=mongo mongo:latest
+	docker container run --rm --detach --net=host --name=mongo mongo:latest --replSet=local
+	sleep 5
+	docker container exec -it mongo mongo --eval 'rs.initiate()'
 )}
 start-rabbitmq() {(
 	set -ex
@@ -57,6 +59,14 @@ start-redis() {(
 	start-docker
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
+)}
+export ELASTICSEARCH_VERSION=6.6.2
+start-elasticsearch() {(
+	set -ex
+	start-docker
+	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch elasticsearch:${ELASTICSEARCH_VERSION}
+	docker image pull elastichq/elasticsearch-hq:latest
+	docker container run --rm --detach --net=host --name elastichsearch-hq elastichq/elasticsearch-hq:latest
 )}
 alias dive='docker image pull wagoodman/dive:latest && docker container run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/bin/docker wagoodman/dive:latest'
 
