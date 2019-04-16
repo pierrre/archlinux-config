@@ -60,13 +60,13 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=6.6.2
+export ELASTICSEARCH_VERSION=7.0.0
 start-elasticsearch() {(
 	set -ex
 	start-docker
-	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch elasticsearch:${ELASTICSEARCH_VERSION}
+	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
 	docker image pull elastichq/elasticsearch-hq:latest
-	docker container run --rm --detach --net=host --name elastichsearch-hq elastichq/elasticsearch-hq:latest
+	docker container run --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
 )}
 alias dive='docker image pull wagoodman/dive:latest && docker container run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/bin/docker wagoodman/dive:latest'
 
