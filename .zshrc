@@ -60,15 +60,28 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.0.0
+export ELASTICSEARCH_VERSION=7.0.1
 start-elasticsearch() {(
 	set -ex
 	start-docker
 	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
 	docker image pull elastichq/elasticsearch-hq:latest
 	docker container run --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
+	sleep 3
+	xdg-open http://localhost:5000
 )}
-alias dive='docker image pull wagoodman/dive:latest && docker container run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/bin/docker wagoodman/dive:latest'
+start-kafka() {(
+	set -ex
+	start-docker
+	docker image pull bitnami/zookeeper:latest
+	docker container run --rm --detach --net=host -e ALLOW_ANONYMOUS_LOGIN=yes --name=zookeeper bitnami/zookeeper:latest
+	docker image pull bitnami/kafka:latest
+	docker container run --rm --detach --net=host -e ALLOW_PLAINTEXT_LISTENER=yes --name=kafka bitnami/kafka:latest
+	docker image pull hlebalbau/kafka-manager:stable
+	docker container run --rm --detach --net=host -e ZK_HOSTS=localhost:2181 --name=kafka-manager hlebalbau/kafka-manager:stable
+	sleep 3
+	xdg-open http://localhost:9000
+)}
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {(
@@ -107,7 +120,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 )}
 
-export GIMME_GO_VERSION=1.12.3
+export GIMME_GO_VERSION=1.12.4
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
