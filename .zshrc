@@ -67,7 +67,7 @@ start-elasticsearch() {(
 	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
 	docker image pull elastichq/elasticsearch-hq:latest
 	docker container run --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
-	sleep 3
+	sleep 5
 	xdg-open http://localhost:5000
 )}
 start-kafka() {(
@@ -76,10 +76,10 @@ start-kafka() {(
 	docker image pull bitnami/zookeeper:latest
 	docker container run --rm --detach --net=host -e ALLOW_ANONYMOUS_LOGIN=yes --name=zookeeper bitnami/zookeeper:latest
 	docker image pull bitnami/kafka:latest
-	docker container run --rm --detach --net=host -e ALLOW_PLAINTEXT_LISTENER=yes --name=kafka bitnami/kafka:latest
+	docker container run --rm --detach --net=host -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_DELETE_TOPIC_ENABLE=true --name=kafka bitnami/kafka:latest
 	docker image pull hlebalbau/kafka-manager:stable
 	docker container run --rm --detach --net=host -e ZK_HOSTS=localhost:2181 --name=kafka-manager hlebalbau/kafka-manager:stable
-	sleep 3
+	sleep 5
 	xdg-open http://localhost:9000
 )}
 
