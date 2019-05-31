@@ -60,7 +60,7 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.0.1
+export ELASTICSEARCH_VERSION=7.1.0
 start-elasticsearch() {(
 	set -ex
 	start-docker
