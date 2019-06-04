@@ -138,16 +138,10 @@ gimme-update() {(
 )}
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre
-gopath-update() {(
+export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre:$GOPATH/src/github.com/DTSL
+gotools-update() {(
 	set -ex
-	git-pull-dir $GOPATH/src
-	gopath-refresh
-)}
-gopath-refresh() {(
-	set -ex
-	rm -rf $GOPATH/bin $GOPATH/pkg/$(go env GOOS)_$(go env GOARCH)
-	go get -v\
+	go get -v -u\
 	golang.org/x/tools/cmd/benchcmp\
 	golang.org/x/tools/cmd/godoc\
 	github.com/google/pprof\
