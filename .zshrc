@@ -60,7 +60,7 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.1.0
+export ELASTICSEARCH_VERSION=7.1.1
 start-elasticsearch() {(
 	set -ex
 	start-docker
@@ -120,7 +120,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --prune
 )}
 
-export GIMME_GO_VERSION=1.12.5
+export GIMME_GO_VERSION=1.12.6
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
@@ -138,13 +138,13 @@ gimme-update() {(
 )}
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export CDPATH=$CDPATH:$GOPATH/src:$GOPATH/src/github.com/pierrre:$GOPATH/src/github.com/DTSL
+export CDPATH=$CDPATH:$HOME/gosrc:$HOME/gosrc/github.com/pierrre
 gotools-update() {(
 	set -ex
+	GO111MODULE=on\
 	go get -v -u\
 	golang.org/x/tools/cmd/benchcmp\
 	golang.org/x/tools/cmd/godoc\
 	github.com/google/pprof\
-	github.com/golang/dep/cmd/dep\
 	github.com/rakyll/hey
 )}
