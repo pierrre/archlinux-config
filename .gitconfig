@@ -17,3 +17,5 @@
 	writeCommitGraph = true
 [smartgit "fetch"]
 	tags = true
+[url "https://xxx@github.com/"]
+	insteadOf = https://github.com/
