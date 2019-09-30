@@ -52,11 +52,11 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.3.1
+export ELASTICSEARCH_VERSION=7.3.2
 start-elasticsearch() {(
 	set -ex
 	start-docker
-	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch-oss:${ELASTICSEARCH_VERSION}
+	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
 	docker image pull elastichq/elasticsearch-hq:latest
 	docker container run --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
 	sleep 5
