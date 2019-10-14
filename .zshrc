@@ -52,11 +52,13 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.3.2
+export ELASTICSEARCH_VERSION=7.4.0
 start-elasticsearch() {(
 	set -ex
 	start-docker
 	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
+	docker container exec -it elasticsearch elasticsearch-plugin install analysis-icu
+	docker container restart elasticsearch
 	docker image pull elastichq/elasticsearch-hq:latest
 	docker container run --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
 	sleep 5
