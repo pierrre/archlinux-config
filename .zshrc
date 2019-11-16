@@ -137,8 +137,6 @@ gotools-update() {(
 	set -ex
 	GO111MODULE=on\
 	go get -v -u\
-	golang.org/x/tools/cmd/benchcmp\
 	golang.org/x/tools/cmd/godoc\
-	github.com/google/pprof\
-	github.com/rakyll/hey
+	github.com/google/pprof
 )}
