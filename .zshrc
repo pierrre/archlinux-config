@@ -52,7 +52,7 @@ start-redis() {(
 	docker pull redis:alpine
 	docker container run --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.6.0
+export ELASTICSEARCH_VERSION=7.6.1
 start-elasticsearch() {(
 	set -ex
 	start-docker
@@ -114,8 +114,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-#export GIMME_GO_VERSION=1.13.8
-export GIMME_GO_VERSION=1.14rc1
+export GIMME_GO_VERSION=1.14
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
