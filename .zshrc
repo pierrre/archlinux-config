@@ -114,7 +114,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-export GIMME_GO_VERSION=1.14
+export GIMME_GO_VERSION=1.14.3
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
@@ -138,5 +138,5 @@ gotools-update() {(
 	GO111MODULE=on\
 	go get -v -u\
 	golang.org/x/tools/cmd/godoc\
-	github.com/google/pprof
+	golang.org/x/perf/cmd/benchstat
 )}
