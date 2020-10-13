@@ -12,7 +12,6 @@ plugins=(
 	git-extras
 	golang
 	history-substring-search
-	kubectl
 )
 source $ZSH/oh-my-zsh.sh
 zstyle ":completion:*:commands" rehash 1
@@ -82,6 +81,12 @@ start-clickhouse() {(
 	docker image pull yandex/clickhouse-server:latest
 	docker container run --rm --detach --net=host --name=clickhouse yandex/clickhouse-server:latest
 )}
+start-mysql() {(
+	set -ex
+	start-docker
+	docker image pull mysql:latest
+	docker container run --rm --detach --net=host -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --name=mysql mysql:latest
+)}
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {(
@@ -120,7 +125,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-export GIMME_GO_VERSION=1.14.4
+export GIMME_GO_VERSION=1.15.2
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
