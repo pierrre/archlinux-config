@@ -32,46 +32,39 @@ start-docker() {(
 start-mongo() {(
 	set -ex
 	start-docker
-	docker image pull mongo:latest
-	docker container run --rm --detach --net=host --name=mongo mongo:latest --replSet=local
+	docker container run --pull=always --rm --detach --net=host --name=mongo mongo:latest --replSet=local --wiredTigerCacheSizeGB=0.5
 	sleep 5
 	docker container exec -it mongo mongo --eval 'rs.initiate()'
 )}
 start-rabbitmq() {(
 	set -ex
 	start-docker
-	docker image pull rabbitmq:management-alpine
-	docker container run --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
+	docker container run --pull=always --rm --detach --net=host --name=rabbitmq rabbitmq:management-alpine
 	sleep 10
 	docker container exec -it rabbitmq rabbitmq-plugins enable rabbitmq_shovel_management rabbitmq_top
 )}
 start-redis() {(
 	set -ex
 	start-docker
-	docker pull redis:alpine
-	docker container run --rm --detach --net=host --name=redis redis:alpine
+	docker container run --pull=always --rm --detach --net=host --name=redis redis:alpine
 )}
-export ELASTICSEARCH_VERSION=7.6.1
+export ELASTICSEARCH_VERSION=7.10.1
 start-elasticsearch() {(
 	set -ex
 	start-docker
-	docker container run --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
+	docker container run --pull=always --rm --detach --net=host -e discovery.type=single-node --name=elasticsearch docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION}
 	docker container exec -it elasticsearch elasticsearch-plugin install analysis-icu
 	docker container restart elasticsearch
-	docker image pull elastichq/elasticsearch-hq:latest
-	docker container run --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
+	docker container run --pull=always --rm --detach --net=host --name elasticsearch-hq elastichq/elasticsearch-hq:latest
 	sleep 5
 	xdg-open http://localhost:5000
 )}
 start-kafka() {(
 	set -ex
 	start-docker
-	docker image pull bitnami/zookeeper:latest
-	docker container run --rm --detach --net=host -e ALLOW_ANONYMOUS_LOGIN=yes --name=zookeeper bitnami/zookeeper:latest
-	docker image pull bitnami/kafka:latest
-	docker container run --rm --detach --net=host -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_DELETE_TOPIC_ENABLE=true --name=kafka bitnami/kafka:latest
-	docker image pull hlebalbau/kafka-manager:stable
-	docker container run --rm --detach --net=host -e ZK_HOSTS=localhost:2181 --name=kafka-manager hlebalbau/kafka-manager:stable
+	docker container run --pull=always --rm --detach --net=host -e ALLOW_ANONYMOUS_LOGIN=yes --name=zookeeper bitnami/zookeeper:latest
+	docker container run --pull=always --rm --detach --net=host -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_DELETE_TOPIC_ENABLE=true --name=kafka bitnami/kafka:latest
+	docker container run --pull=always --rm --detach --net=host -e ZK_HOSTS=localhost:2181 --name=kafka-manager hlebalbau/kafka-manager:stable
 	sleep 5
 	xdg-open http://localhost:9000
 )}
@@ -125,7 +118,8 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-export GIMME_GO_VERSION=1.15.2
+#export GIMME_GO_VERSION=1.15.7
+export GIMME_GO_VERSION=1.16rc1
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
