@@ -12,6 +12,7 @@ plugins=(
 	git-extras
 	golang
 	history-substring-search
+	kubectl
 )
 source $ZSH/oh-my-zsh.sh
 zstyle ":completion:*:commands" rehash 1
@@ -118,8 +119,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-#export GIMME_GO_VERSION=1.15.7
-export GIMME_GO_VERSION=1.16rc1
+export GIMME_GO_VERSION=1.17.1
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
@@ -140,8 +140,6 @@ export PATH=$PATH:$GOPATH/bin
 export CDPATH=$CDPATH:$HOME/gosrc:$HOME/gosrc/github.com/pierrre
 gotools-update() {(
 	set -ex
-	GO111MODULE=on\
-	go get -v -u\
-	golang.org/x/tools/cmd/godoc\
-	golang.org/x/perf/cmd/benchstat
+	go install -v golang.org/x/tools/cmd/godoc@latest
+	go install -v golang.org/x/perf/cmd/benchstat@latest
 )}
