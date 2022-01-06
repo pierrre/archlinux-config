@@ -1,7 +1,5 @@
 ulimit -n 4096
 
-if [ -f '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/path.zsh.inc'; fi
-
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(
@@ -12,7 +10,6 @@ plugins=(
 	git-extras
 	golang
 	history-substring-search
-	kubectl
 )
 source $ZSH/oh-my-zsh.sh
 zstyle ":completion:*:commands" rehash 1
@@ -23,8 +20,6 @@ export CDPATH=.:$HOME
 
 alias drop-caches="sudo zsh -c 'sync;echo 3 > /proc/sys/vm/drop_caches'"
 alias clean-swap="sudo zsh -c 'swapoff -a && swapon -a'"
-
-if [ -f '/home/pierre/Logiciels/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/pierre/Logiciels/google-cloud-sdk/completion.zsh.inc'; fi
 
 start-docker() {(
 	set -ex
@@ -137,7 +132,7 @@ gimme-update() {(
 )}
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export CDPATH=$CDPATH:$HOME/gosrc:$HOME/gosrc/github.com/pierrre
+export CDPATH=$CDPATH:$HOME/Git/pierrre
 gotools-update() {(
 	set -ex
 	go install -v golang.org/x/tools/cmd/godoc@latest
