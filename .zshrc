@@ -76,6 +76,11 @@ start-mysql() {(
 	docker image pull mysql:latest
 	docker container run --rm --detach --net=host -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --name=mysql mysql:latest
 )}
+start-postgres() {(
+        set -ex
+        start-docker
+        docker container run --pull=always --rm --detach --net=host -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_DB=database --name=postgres postgres
+)}
 
 GITHUB_TOKEN=xxx
 git-clone-organization() {(
