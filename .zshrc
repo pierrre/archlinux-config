@@ -67,19 +67,17 @@ start-kafka() {(
 start-clickhouse() {(
 	set -ex
 	start-docker
-	docker image pull yandex/clickhouse-server:latest
-	docker container run --rm --detach --net=host --name=clickhouse yandex/clickhouse-server:latest
+	docker container run --pull=always --rm --detach --net=host --name=clickhouse yandex/clickhouse-server:latest
 )}
 start-mysql() {(
 	set -ex
 	start-docker
-	docker image pull mysql:latest
-	docker container run --rm --detach --net=host -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --name=mysql mysql:latest
+	docker container run --pull=always --rm --detach --net=host -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --name=mysql mysql:latest
 )}
 start-postgres() {(
-        set -ex
-        start-docker
-        docker container run --pull=always --rm --detach --net=host -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_DB=database --name=postgres postgres
+	set -ex
+	start-docker
+	docker container run --pull=always --rm --detach --net=host -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -e POSTGRES_DB=database --name=postgres postgres:latest
 )}
 
 GITHUB_TOKEN=xxx
@@ -119,7 +117,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-export GIMME_GO_VERSION=1.17.6
+export GIMME_GO_VERSION=1.18.1
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
