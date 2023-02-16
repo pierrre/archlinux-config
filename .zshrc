@@ -15,6 +15,7 @@ source $ZSH/oh-my-zsh.sh
 zstyle ":completion:*:commands" rehash 1
 
 export EDITOR=nano
+export BROWSER=google-chrome-stable
 export PATH=$PATH:$HOME/Logiciels
 export CDPATH=.:$HOME
 
@@ -81,7 +82,7 @@ start-postgres() {(
 )}
 
 GITHUB_TOKEN=xxx
-git-clone-organization() {(
+github-clone-organization() {(
 	set -ex
 	org=$1
 	if [ -z "$org" ]; then
@@ -117,7 +118,7 @@ git-pull-dir() {(
 	find $dir -type d -name ".git" | xargs dirname | parallel -v -j 8 git -C {} pull --all --tags --force --prune
 )}
 
-export GIMME_GO_VERSION=1.18.1
+export GIMME_GO_VERSION=1.20.1
 export GIMME=$HOME/.gimme
 export GIMME_TYPE=source
 export GIMME_SILENT_ENV=1
